@@ -42,5 +42,6 @@ public class Move implements Action {
         View newView = viewReader.readView((int) dest.getX(), (int) dest.getY());
         game.setCurrentView(newView);
         System.out.println("moving to " + direction);
+        game.describeView();
     }
 }

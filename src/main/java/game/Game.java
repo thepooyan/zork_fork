@@ -12,10 +12,15 @@ public class Game {
     private View currentView = viewReader.readView(0,0);
 
     public void start() {
-        String response = prompt.get(currentView.getStoryNote());
+        describeView();
+        gameLoop();
+    }
+
+    public void gameLoop() {
+        String response = prompt.get("=> ");
         Action action = syntaxAnalyzer.analyzeResponse(response);
         action.apply(this);
-        start();
+        gameLoop();
     }
 
     public View getCurrentView() {
@@ -24,5 +29,9 @@ public class Game {
 
     public void setCurrentView(View currentView) {
         this.currentView = currentView;
+    }
+
+    public void describeView() {
+        System.out.println(this.currentView.getStoryNote());
     }
 }
