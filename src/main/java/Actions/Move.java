@@ -19,7 +19,7 @@ public class Move implements Action {
             return;
         }
         Point2D dest = new Point2D.Double(0,0);
-        Point2D coordinates = game.currentView.getCoordinates();
+        Point2D coordinates = game.getCurrentView().getCoordinates();
         switch (direction) {
             case east:
                 dest = new Point2D.Double(coordinates.getX()+1, coordinates.getY());
@@ -36,7 +36,7 @@ public class Move implements Action {
         }
         ViewReader viewReader = new ViewReader();
         View newView = viewReader.readView((int) dest.getX(), (int) dest.getY());
-        game.currentView = newView;
+        game.setCurrentView(newView);
         System.out.println("moving to " + direction);
     }
 }

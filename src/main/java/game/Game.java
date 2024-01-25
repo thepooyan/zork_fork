@@ -9,7 +9,7 @@ public class Game {
     public Prompt prompt = new Prompt();
     public SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     public ViewReader viewReader = new ViewReader();
-    public View currentView = viewReader.readView(0,0);
+    private View currentView = viewReader.readView(0,0);
 
     public void start() {
         String response = prompt.get(currentView.getStoryNote());
@@ -18,7 +18,11 @@ public class Game {
         start();
     }
 
-    private void applyAction(Action action) {
-        System.out.println("applying action " + action);
+    public View getCurrentView() {
+        return currentView;
+    }
+
+    public void setCurrentView(View currentView) {
+        this.currentView = currentView;
     }
 }
