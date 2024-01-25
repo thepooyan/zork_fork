@@ -14,3 +14,4 @@ to make:
 - npc interactions
 - involantary actions (like death, time bomb, npc talking to you)
 - accidents (an action happening when you enter a view), (once or every time)
+- hello action! (for fun :) )
