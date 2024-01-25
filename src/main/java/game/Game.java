@@ -1,16 +1,9 @@
 package game;
 
 import Util.Prompt;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import Util.ViewReader;
 import schema.Action;
 import schema.View;
-import views.View0_0;
-
-import java.io.File;
-import java.io.IOException;
 
 public class Game {
     private Prompt prompt = new Prompt();
@@ -23,14 +16,11 @@ public class Game {
 //        String response = prompt.get("hello => ");
 //        Action action = syntaxAnalyzer.analyzeResponse(response);
 //        applyAction(action);
-        readViews();
+        View view = new ViewReader().readView(0,0);
+        System.out.println(view);
     }
 
     private void applyAction(Action action) {
         System.out.println("applying action " + action);
-    }
-
-    private void readViews() {
-
     }
 }
