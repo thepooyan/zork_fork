@@ -34,7 +34,6 @@ public class ViewReader {
             if (route.getChildTextTrim("west").equals("1")) {
                 west = true;
             }
-            System.out.println(storyNote);
 
             return new View(storyNote, new Point2D.Double(x,y), north,south,ease,west);
         } catch (JDOMException | IOException e) {

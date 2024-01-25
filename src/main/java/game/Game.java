@@ -8,16 +8,14 @@ import schema.View;
 public class Game {
     private Prompt prompt = new Prompt();
     private SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    private View currentView;
+    private ViewReader viewReader = new ViewReader();
+    private View currentView = viewReader.readView(0,0);
     private View[] views;
-    private final String viewsFolder = "src/main/java/views/";
 
     public void start() {
-//        String response = prompt.get("hello => ");
-//        Action action = syntaxAnalyzer.analyzeResponse(response);
-//        applyAction(action);
-        View view = new ViewReader().readView(0,0);
-        System.out.println(view);
+        String response = prompt.get(currentView.getStoryNote());
+        Action action = syntaxAnalyzer.analyzeResponse(response);
+        applyAction(action);
     }
 
     private void applyAction(Action action) {
