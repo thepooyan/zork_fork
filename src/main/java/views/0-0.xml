@@ -1,0 +1,19 @@
+<view>
+    <story_note>
+        Hello! this is the first view.
+    </story_note>
+    <objects>
+        <object_1>box</object_1>
+        <object_2>axe</object_2>
+    </objects>
+    <coordinates>
+        <x> 0 </x>
+        <y> 0 </y>
+    </coordinates>
+    <hidden_note>
+        if the player insits on information,
+        this will be shown. and even more nested
+        information!
+        <hidden_note></hidden_note>
+    </hidden_note>
+</view>
