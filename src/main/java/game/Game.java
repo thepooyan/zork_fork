@@ -1,8 +1,8 @@
 package game;
 
+import Actions.Action;
 import Util.Prompt;
 import Util.ViewReader;
-import schema.Action;
 import schema.View;
 
 public class Game {
@@ -10,12 +10,12 @@ public class Game {
     private SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     private ViewReader viewReader = new ViewReader();
     private View currentView = viewReader.readView(0,0);
-    private View[] views;
 
     public void start() {
         String response = prompt.get(currentView.getStoryNote());
         Action action = syntaxAnalyzer.analyzeResponse(response);
-        applyAction(action);
+        action.apply();
+//        start();
     }
 
     private void applyAction(Action action) {
