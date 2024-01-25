@@ -18,6 +18,10 @@ public class Move implements Action {
             System.out.println("moving to where?!?");
             return;
         }
+        if (!game.getCurrentView().getNeighbours().contains(direction)) {
+            System.out.println("there is no path there!");
+            return;
+        }
         Point2D dest = new Point2D.Double(0,0);
         Point2D coordinates = game.getCurrentView().getCoordinates();
         switch (direction) {
