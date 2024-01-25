@@ -20,9 +20,12 @@ public class ViewReader {
         File file = new File(viewsFolder + x + "-" + y + ".xml");
         SAXBuilder builder = new SAXBuilder();
         try {
+            //root element
             Document document = builder.build(file);
             Element root = document.getRootElement();
+            //story note
             String storyNote = root.getChildTextTrim("story_note");
+            //neighbours
             List<Direction> neighbours = new ArrayList<>();
             Element route = root.getChild("route");
             if (route.getChildTextTrim("north").equals("1")) {
