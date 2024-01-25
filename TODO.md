@@ -1,3 +1,16 @@
 idea:
     implement dictionary based syntax analyzer
     remove junk from sentences before proccess
+
+to make:
+- get hidden note
+- sample object
+- action on object
+- inventory query
+- directions query
+- healthbar
+- health query
+- npc creation ?!?!
+- npc interactions
+- involantary actions (like death, time bomb, npc talking to you)
+- accidents (an action happening when you enter a view), (once or every time)
