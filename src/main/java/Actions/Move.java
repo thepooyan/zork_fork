@@ -2,6 +2,7 @@ package Actions;
 
 import Util.ViewReader;
 import game.Game;
+import schema.Action;
 import schema.View;
 
 import java.awt.geom.Point2D;

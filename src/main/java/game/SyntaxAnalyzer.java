@@ -1,12 +1,7 @@
 package game;
 
 import Actions.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import schema.Action;
 
 public class SyntaxAnalyzer {
     Dictionary dictionary = new Dictionary();

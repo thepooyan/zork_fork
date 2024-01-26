@@ -1,6 +1,6 @@
 package game;
 
-import Actions.Action;
+import schema.Action;
 import Util.Prompt;
 import Util.ViewReader;
 import schema.View;

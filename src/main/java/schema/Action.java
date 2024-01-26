@@ -1,4 +1,4 @@
-package Actions;
+package schema;
 
 import game.Game;
 
