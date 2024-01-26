@@ -9,6 +9,9 @@ import java.awt.geom.Point2D;
 public class Move extends Action {
     public Direction direction;
 
+    public Move(Direction direction) {
+        this.direction = direction;
+    }
     @Override
     public void apply(Game game) {
         if (direction == null) {

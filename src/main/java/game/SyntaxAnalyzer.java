@@ -2,37 +2,37 @@ package game;
 
 import Actions.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class SyntaxAnalyzer {
+    Dictionary dictionary = new Dictionary();
     public Action analyzeResponse(String response) {
        String[] chunks = response.split(" ");
-       switch (chunks[0]) {
-           case "go":
-               Direction direction = null;
-               switch (chunks[1]) {
-                   case "up":
-                   case "north":
-                       direction = Direction.north;
-                       break;
-                   case "down":
-                   case "south":
-                       direction = Direction.south;
-                       break;
-                   case "left":
-                   case "west":
-                       direction = Direction.west;
-                       break;
-                   case "right":
-                   case "east":
-                       direction = Direction.east;
-                       break;
-               }
-               Move move = new Move();
-               move.direction = direction;
-               return move;
-           default:
-               return new Idol();
-           case "describe":
-               return new DescribeView();
-       }
+
+       Integer actionID = dictionary.maps.get(chunks[0]);
+       String actionLabel = dictionary.actions.get(actionID);
+
+        switch (actionLabel) {
+            default -> {
+                return new Idol();
+            }
+            case "move" -> {
+                Direction direction = switch (chunks[1]) {
+                    case "up", "north" -> Direction.north;
+                    case "down", "south" -> Direction.south;
+                    case "left", "west" -> Direction.west;
+                    case "right", "east" -> Direction.east;
+                    default -> null;
+                };
+                return new Move(direction);
+            }
+            case "describe" -> {
+                return new DescribeView();
+            }
+        }
     }
 }
