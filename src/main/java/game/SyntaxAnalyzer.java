@@ -1,9 +1,6 @@
 package game;
 
-import Actions.Action;
-import Actions.Direction;
-import Actions.Idol;
-import Actions.Move;
+import Actions.*;
 
 public class SyntaxAnalyzer {
     public Action analyzeResponse(String response) {
@@ -32,6 +29,8 @@ public class SyntaxAnalyzer {
                return new Move(direction);
            default:
                return new Idol();
+           case "describe":
+               return new DescribeView();
        }
     }
 }
