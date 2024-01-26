@@ -5,7 +5,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import schema.View;
+import Schema.View;
 
 import java.awt.geom.Point2D;
 import java.io.File;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewReader {
-    private final static String viewsFolder = "src/main/java/views/";
+    private final static String viewsFolder = "src/main/java/Views/";
 
     public View readView(int x, int y) {
         File file = new File(viewsFolder + x + "-" + y + ".xml");

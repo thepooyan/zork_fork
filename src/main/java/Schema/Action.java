@@ -1,6 +1,6 @@
-package schema;
+package Schema;
 
-import game.Game;
+import Game.Game;
 
 public abstract class Action {
     public abstract void apply(Game game);

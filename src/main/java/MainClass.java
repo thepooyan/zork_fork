@@ -1,4 +1,4 @@
-import game.Game;
+import Game.Game;
 
 public class MainClass {
     public static void main(String[] args) {

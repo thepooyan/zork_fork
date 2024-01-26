@@ -1,4 +1,4 @@
-package schema;
+package Schema;
 import Actions.Direction;
 import lombok.Data;
 import java.awt.geom.Point2D;

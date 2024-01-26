@@ -1,9 +1,9 @@
-package game;
+package Game;
 
-import schema.Action;
+import Schema.Action;
 import Util.Prompt;
 import Util.ViewReader;
-import schema.View;
+import Schema.View;
 
 public class Game {
     public Prompt prompt = new Prompt();

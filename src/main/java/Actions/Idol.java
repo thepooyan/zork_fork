@@ -1,7 +1,7 @@
 package Actions;
 
-import game.Game;
-import schema.Action;
+import Game.Game;
+import Schema.Action;
 
 public class Idol extends Action {
     @Override

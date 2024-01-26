@@ -1,7 +1,7 @@
-package game;
+package Game;
 
 import Actions.*;
-import schema.Action;
+import Schema.Action;
 
 public class SyntaxAnalyzer {
     Dictionary dictionary = new Dictionary();

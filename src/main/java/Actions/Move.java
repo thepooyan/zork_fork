@@ -1,9 +1,9 @@
 package Actions;
 
 import Util.ViewReader;
-import game.Game;
-import schema.Action;
-import schema.View;
+import Game.Game;
+import Schema.Action;
+import Schema.View;
 
 import java.awt.geom.Point2D;
 
