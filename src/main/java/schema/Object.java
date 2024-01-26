@@ -1,4 +1,5 @@
 package schema;
 
-public interface Object {
+public abstract class Object {
+    private int weight;
 }
