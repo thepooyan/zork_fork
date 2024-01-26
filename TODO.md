@@ -16,3 +16,5 @@ to make:
 - hello action! (for fun :) )
 - save/load action!
 - change terminal colors
+- handle unrecognized statements
+- handle multiple word actions
