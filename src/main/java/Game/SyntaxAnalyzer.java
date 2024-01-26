@@ -28,6 +28,9 @@ public class SyntaxAnalyzer {
             case "describe" -> {
                 return new DescribeView();
             }
+            case "exit" -> {
+                return new Exit();
+            }
         }
     }
 }

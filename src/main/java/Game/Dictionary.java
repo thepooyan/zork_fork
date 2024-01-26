@@ -16,5 +16,11 @@ public class Dictionary {
         actions.put(1, "describe");
         maps.put("describe", 1);
         maps.put("tell", 1);
+
+        actions.put(2, "exit");
+        maps.put("exit", 2);
+        maps.put("end", 2);
+        maps.put("done", 2);
+        maps.put("out", 2);
     }
 }

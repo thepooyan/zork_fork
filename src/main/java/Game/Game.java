@@ -10,16 +10,22 @@ public class Game {
     public SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     public ViewReader viewReader = new ViewReader();
     private View currentView = viewReader.readView(0,0);
+    private boolean stop = false;
 
     public void start() {
         describeView();
         gameLoop();
     }
 
+    public void end() {
+         this.stop = true;
+    }
+
     public void gameLoop() {
         String response = prompt.get("=> ");
         Action action = syntaxAnalyzer.analyzeResponse(response);
         action.apply(this);
+        if (stop) return;
         gameLoop();
     }
 
