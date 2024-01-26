@@ -15,3 +15,4 @@ to make:
 - accidents (an action happening when you enter a view), (once or every time)
 - hello action! (for fun :) )
 - save/load action!
+- change terminal colors
