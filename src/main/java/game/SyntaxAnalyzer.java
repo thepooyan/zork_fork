@@ -26,7 +26,9 @@ public class SyntaxAnalyzer {
                        direction = Direction.east;
                        break;
                }
-               return new Move(direction);
+               Move move = new Move();
+               move.direction = direction;
+               return move;
            default:
                return new Idol();
            case "describe":

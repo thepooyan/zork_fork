@@ -2,7 +2,7 @@ package Actions;
 
 import game.Game;
 
-public class DescribeView implements Action {
+public class DescribeView extends Action {
     @Override
     public void apply(Game game) {
         game.describeView();
