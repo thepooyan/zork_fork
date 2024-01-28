@@ -4,7 +4,6 @@ idea:
 to make:
 - get hidden note
 - sample object
-- action on object
 - inventory query
 - directions query
 - healthbar
