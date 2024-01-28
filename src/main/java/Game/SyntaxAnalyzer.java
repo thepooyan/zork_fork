@@ -2,6 +2,7 @@ package Game;
 
 import Actions.*;
 import Enums.Direction;
+import Actions.Read;
 import Schema.Action;
 
 public class SyntaxAnalyzer {
@@ -31,6 +32,9 @@ public class SyntaxAnalyzer {
             }
             case "exit" -> {
                 return new Exit();
+            }
+            case "read" -> {
+               return new Read();
             }
         }
     }

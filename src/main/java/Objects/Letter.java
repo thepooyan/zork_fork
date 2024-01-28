@@ -10,4 +10,7 @@ public class Letter extends Object {
         setContent(content);
     }
     private String content;
+    public void Read() {
+        System.out.println(this.getContent());
+    }
 }
