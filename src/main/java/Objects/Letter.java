@@ -1,16 +1,17 @@
 package Objects;
 
-import Schema.Object;
-import lombok.Data;
+import Game.Game;
 
-@Data
-public class Letter extends Object {
-    public Letter(String content) {
-        setWeight(1);
-        setContent(content);
+public class Letter extends Pickable implements Readable{
+    private String msg;
+
+    public Letter(String msg) {
+        super(1);
+        this.msg = msg;
     }
-    private String content;
-    public void Read() {
-        System.out.println(this.getContent());
+
+    @Override
+    public void read() {
+        System.out.println("letter says:\n***\n" + this.msg + "\n***");
     }
 }
