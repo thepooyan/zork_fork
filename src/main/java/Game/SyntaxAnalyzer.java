@@ -1,6 +1,7 @@
 package Game;
 
 import Actions.*;
+import Enums.Direction;
 import Schema.Action;
 
 public class SyntaxAnalyzer {

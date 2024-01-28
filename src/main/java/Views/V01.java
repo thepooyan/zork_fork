@@ -1,8 +1,6 @@
 package Views;
 
-import Actions.Direction;
-import Objects.Box;
-import Schema.Object;
+import Enums.Direction;
 import Schema.View;
 
 import java.awt.geom.Point2D;

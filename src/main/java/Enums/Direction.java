@@ -1,4 +1,4 @@
-package Actions;
+package Enums;
 
 public enum Direction {
     north,

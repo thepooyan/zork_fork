@@ -6,8 +6,8 @@ import Schema.View;
 import Views.World;
 
 public class Game {
-    public Prompt prompt = new Prompt();
-    public SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
+    private Prompt prompt = new Prompt();
+    private SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     private World currentWorld = new World();
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;

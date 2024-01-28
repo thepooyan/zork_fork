@@ -1,6 +1,6 @@
 package Actions;
 
-import Util.ViewReader;
+import Enums.Direction;
 import Game.Game;
 import Schema.Action;
 import Schema.View;

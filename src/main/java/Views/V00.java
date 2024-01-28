@@ -1,6 +1,6 @@
 package Views;
 
-import Actions.Direction;
+import Enums.Direction;
 import Objects.Box;
 import Schema.Object;
 import Schema.View;

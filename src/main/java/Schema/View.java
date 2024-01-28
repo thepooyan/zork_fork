@@ -1,6 +1,6 @@
 package Schema;
-import Actions.Direction;
-import lombok.Data;
+import Enums.Direction;
+
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
