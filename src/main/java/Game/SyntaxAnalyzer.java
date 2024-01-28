@@ -34,7 +34,7 @@ public class SyntaxAnalyzer {
                 return new Exit();
             }
             case "read" -> {
-               return new Read();
+               return new Read(chunks[1]);
             }
         }
     }
