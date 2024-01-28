@@ -18,3 +18,4 @@ to make:
 - change terminal colors
 - handle unrecognized statements
 - handle multiple word actions
+- action to show discovered actions so far!
