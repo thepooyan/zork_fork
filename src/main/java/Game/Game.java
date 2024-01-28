@@ -2,14 +2,14 @@ package Game;
 
 import Schema.Action;
 import Util.Prompt;
-import Util.ViewReader;
 import Schema.View;
+import Views.World;
 
 public class Game {
     public Prompt prompt = new Prompt();
     public SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    public ViewReader viewReader = new ViewReader();
-    private View currentView = viewReader.readView(0,0);
+    private World currentWorld = new World();
+    private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
 
     public void start() {
@@ -39,5 +39,9 @@ public class Game {
 
     public void describeView() {
         System.out.println(this.currentView.getStoryNote());
+    }
+
+    public World getCurrentWorld() {
+        return currentWorld;
     }
 }

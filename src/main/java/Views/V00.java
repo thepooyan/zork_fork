@@ -14,7 +14,7 @@ public class V00 extends View {
         super(
                 "this is story note, there's a box here on the table.",
             new Point2D.Double(0,0),
-            new ArrayList<>(List.of(Direction.west, Direction.south))
+            new ArrayList<>(List.of(Direction.north))
         );
         Object[] a = {new Box()};
         this.setObjects(a);
