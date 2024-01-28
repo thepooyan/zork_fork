@@ -1,10 +1,9 @@
-package Views;
+package Schema;
 
-import Schema.View;
+import Views.V00;
+import Views.V01;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class World {

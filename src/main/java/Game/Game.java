@@ -3,7 +3,7 @@ package Game;
 import Schema.Action;
 import Util.Prompt;
 import Schema.View;
-import Views.World;
+import Schema.World;
 
 public class Game {
     private Prompt prompt = new Prompt();
