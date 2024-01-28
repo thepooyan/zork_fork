@@ -14,4 +14,9 @@ public class Letter extends Pickable implements Readable{
     public void read() {
         System.out.println("letter says:\n***\n" + this.msg + "\n***");
     }
+
+    @Override
+    public void action(Game game) {
+        this.read();
+    }
 }
