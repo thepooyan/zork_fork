@@ -6,19 +6,28 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ObjectActions<Actionable extends ObjectWithAction> extends Schema.Action {
+    private String actionLabel;
     private String objectName;
+    public void transform(Actionable a, Game game) {
+
+    }
+
+    public void setActionLabel(String actionLabel) {
+        this.actionLabel = actionLabel;
+    }
+
     public ObjectActions(String objectName) {
         this.objectName = objectName;
     }
     @Override
     public void apply(Game game) {
         try {
-            Optional<Actionable> letter = Arrays.stream(game.getCurrentView().getObjects())
+            Optional<Actionable> object = Arrays.stream(game.getCurrentView().getObjects())
                     .filter(a -> a.getClass().getSimpleName().equalsIgnoreCase(objectName))
                     .map(a -> (Actionable) a)
                     .findFirst(); //cannot handle more than one action at a view
-            letter.ifPresentOrElse(
-                    a -> a.action(game),
+            object.ifPresentOrElse(
+                    a -> { this.transform(a, game); },
                     ()->{
                         try {
                             String a = objectName.toLowerCase();
@@ -31,7 +40,7 @@ public class ObjectActions<Actionable extends ObjectWithAction> extends Schema.A
             );
 
         } catch (Exception e) {
-            System.out.println("how should i do the " + objectName + "?!?! :/");
+            System.out.println("how should i " + actionLabel + " the " + objectName + "?!?! :/");
         }
     }
 }
