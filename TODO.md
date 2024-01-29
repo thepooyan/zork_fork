@@ -2,6 +2,8 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- dictionary has to be in xml
+- excess code when wanting to add an action
 - get hidden note
 - sample object
 - inventory query
