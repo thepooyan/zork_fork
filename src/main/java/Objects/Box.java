@@ -1,14 +1,17 @@
 package Objects;
 
+import Game.Game;
 import Schema.Object;
 
-public class Box extends Pickable {
+public class Box extends Pickable implements Openable {
     private Object content;
     public Box(Object content) {
         super(5);
         this.content = content;
     }
-    public void Open() {
+
+    @Override
+    public void open(Game game) {
         System.out.println("opening the box...");
     }
 }

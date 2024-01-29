@@ -39,6 +39,9 @@ public class SyntaxAnalyzer {
             case "pick" -> {
                 return new Pick(chunks[1]);
             }
+            case "open" -> {
+                return new Open(chunks[1]);
+            }
         }
     }
 }

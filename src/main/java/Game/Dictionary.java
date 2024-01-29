@@ -26,7 +26,10 @@ public class Dictionary {
         actions.put(3, "read");
         maps.put("read", 3);
 
-        actions.put(1, "pick");
-        maps.put("pick", 1);
+        actions.put(4, "pick");
+        maps.put("pick", 4);
+
+        actions.put(5, "open");
+        maps.put("open", 5);
     }
 }
