@@ -12,6 +12,7 @@ public class Box extends Pickable implements Openable {
 
     @Override
     public void open(Game game) {
-        System.out.println("opening the box...");
+        System.out.println("opening the box: there's a " + content.getClass().getSimpleName() + " inside.");
+        game.getCurrentView().getObjects().add(content);
     }
 }

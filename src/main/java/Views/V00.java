@@ -17,8 +17,7 @@ public class V00 extends View {
             new Point2D.Double(0,0),
             new ArrayList<>(List.of(Direction.north))
         );
-        Object[] a = {new Box(new Letter("this is the letter"))};
-        this.setObjects(a);
+        this.addObjects(new Box(new Letter("this is the letter inside the box")));
         this.setHiddenNote("there is this code written under table: 663");
     }
 }

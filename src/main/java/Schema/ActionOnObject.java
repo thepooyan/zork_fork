@@ -20,7 +20,9 @@ public class ActionOnObject<O extends Object> extends Schema.Action {
     @Override
     public void apply(Game game) {
         try {
-            Optional<O> object = Arrays.stream(game.getCurrentView().getObjects())
+            Optional<O> object = game.getCurrentView()
+                    .getObjects()
+                    .stream()
                     .filter(a -> a.getClass().getSimpleName().equalsIgnoreCase(objectName))
                     .map(a -> (O) a)
                     .findFirst(); //cannot handle more than one action at a view

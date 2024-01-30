@@ -16,8 +16,7 @@ public class V01 extends View {
             new Point2D.Double(0,1),
             new ArrayList<>(List.of(Direction.east))
         );
-        Object[] a = {new Letter("this is the letter itself")};
-        this.setObjects(a);
+        this.addObjects(new Letter("this is the letter itself"));
         this.setHiddenNote("the door is locked;");
     }
 }
