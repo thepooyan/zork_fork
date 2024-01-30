@@ -8,6 +8,7 @@ import Schema.Action;
 public class SyntaxAnalyzer {
     Dictionary dictionary = new Dictionary();
     public Action analyzeResponse(String response) {
+       response = response.toLowerCase();
        String[] chunks = response.split(" ");
 
        Integer actionID = dictionary.maps.get(chunks[0]);
