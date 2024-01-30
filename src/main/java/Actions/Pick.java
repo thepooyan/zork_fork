@@ -3,9 +3,9 @@ package Actions;
 
 import Game.Game;
 import Objects.Pickable;
-import Schema.ObjectActions;
+import Schema.ActionOnObject;
 
-public class Pick extends ObjectActions<Pickable> {
+public class Pick extends ActionOnObject<Pickable> {
     public Pick(String objectName) {
         super(objectName);
         setActionLabel("pick");
@@ -13,7 +13,7 @@ public class Pick extends ObjectActions<Pickable> {
 
 
     @Override
-    public void transform(Pickable a, Game game) {
+    public void applyAction(Pickable a, Game game) {
         a.pickup(game);
     }
 }

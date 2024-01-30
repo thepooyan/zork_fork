@@ -1,5 +1,7 @@
 package Objects;
 
-public interface Readable extends ObjectWithAction {
+import Schema.Object;
+
+public interface Readable extends Object {
     void read();
 }

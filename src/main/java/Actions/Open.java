@@ -2,16 +2,16 @@ package Actions;
 
 import Game.Game;
 import Objects.Openable;
-import Schema.ObjectActions;
+import Schema.ActionOnObject;
 
-public class Open extends ObjectActions<Openable> {
+public class Open extends ActionOnObject<Openable> {
     public Open(String objectName) {
         super(objectName);
         setActionLabel("open");
     }
 
     @Override
-    public void transform(Openable a, Game game) {
+    public void applyAction(Openable a, Game game) {
         a.open(game);
     }
 }

@@ -1,33 +1,31 @@
 package Schema;
 
 import Game.Game;
-import Objects.ObjectWithAction;
+
 import java.util.Arrays;
 import java.util.Optional;
 
-public class ObjectActions<Actionable extends ObjectWithAction> extends Schema.Action {
+public class ActionOnObject<O extends Object> extends Schema.Action {
     private String actionLabel;
     private String objectName;
-    public void transform(Actionable a, Game game) {
-
-    }
+    public void applyAction(O a, Game game) {}
 
     public void setActionLabel(String actionLabel) {
         this.actionLabel = actionLabel;
     }
 
-    public ObjectActions(String objectName) {
+    public ActionOnObject(String objectName) {
         this.objectName = objectName;
     }
     @Override
     public void apply(Game game) {
         try {
-            Optional<Actionable> object = Arrays.stream(game.getCurrentView().getObjects())
+            Optional<O> object = Arrays.stream(game.getCurrentView().getObjects())
                     .filter(a -> a.getClass().getSimpleName().equalsIgnoreCase(objectName))
-                    .map(a -> (Actionable) a)
+                    .map(a -> (O) a)
                     .findFirst(); //cannot handle more than one action at a view
             object.ifPresentOrElse(
-                    a -> { this.transform(a, game); },
+                    a -> { this.applyAction(a, game); },
                     ()->{
                         try {
                             String a = objectName.toLowerCase();

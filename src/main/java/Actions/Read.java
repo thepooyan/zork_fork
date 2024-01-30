@@ -2,9 +2,9 @@ package Actions;
 
 import Game.Game;
 import Objects.Readable;
-import Schema.ObjectActions;
+import Schema.ActionOnObject;
 
-public class Read extends ObjectActions<Readable> {
+public class Read extends ActionOnObject<Readable> {
 
     public Read(String objectName) {
         super(objectName);
@@ -12,7 +12,7 @@ public class Read extends ObjectActions<Readable> {
     }
 
     @Override
-    public void transform(Readable a, Game game) {
+    public void applyAction(Readable a, Game game) {
         a.read();
     }
 }
