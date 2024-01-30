@@ -6,7 +6,7 @@ import Schema.Object;
 public class Box extends Pickable implements Openable {
     private Object content;
     public Box(Object content) {
-        super(5);
+        super(100);
         this.content = content;
     }
 

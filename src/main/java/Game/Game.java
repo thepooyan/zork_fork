@@ -1,5 +1,6 @@
 package Game;
 
+import Objects.Pickable;
 import Schema.Action;
 import Schema.Object;
 import Util.Prompt;
@@ -16,6 +17,7 @@ public class Game {
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
     private List<Object> inventory = new ArrayList<>();
+    private CarryWeight carryWeight = new CarryWeight(100);
 
     public void start() {
         describeView();
@@ -54,8 +56,13 @@ public class Game {
         return inventory;
     }
 
-    public void addToInventory(Object inventory) {
-        this.inventory.add(inventory);
-        System.out.println(inventory.getClass().getSimpleName() + " added to inventory");
+    public void addToInventory(Pickable inventory) {
+        boolean result = carryWeight.increaseValue(inventory.getWeight());
+        if (result) {
+            this.inventory.add(inventory);
+            System.out.println(inventory.getClass().getSimpleName() + " added to inventory");
+        } else {
+            System.out.println("cannot pickup, inventory full!\n(drop some items to be able to pick up more)");
+        }
     }
 }

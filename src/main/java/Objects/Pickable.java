@@ -11,6 +11,10 @@ public class Pickable implements Object {
         game.addToInventory(this);
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName();
