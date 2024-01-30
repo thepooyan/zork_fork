@@ -13,6 +13,9 @@ public class SyntaxAnalyzer {
 
        String actionLabel = dictionary.getActionLabel(chunks[0]);
 
+       if (actionLabel == null) {
+           return new Unkown(chunks[0]);
+       }
         switch (actionLabel) {
             default -> {
                 return new Idol();

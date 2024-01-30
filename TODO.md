@@ -16,7 +16,6 @@ to make:
 - hello action! (for fun :) )
 - save/load action!
 - change terminal colors
-- handle unrecognized statements
 - action to show discovered actions so far!
 
 for later:
