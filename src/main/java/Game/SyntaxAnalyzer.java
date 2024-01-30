@@ -11,8 +11,7 @@ public class SyntaxAnalyzer {
        response = response.toLowerCase();
        String[] chunks = response.split(" ");
 
-       Integer actionID = dictionary.maps.get(chunks[0]);
-       String actionLabel = dictionary.actions.get(actionID);
+       String actionLabel = dictionary.getActionLabel(chunks[0]);
 
         switch (actionLabel) {
             default -> {

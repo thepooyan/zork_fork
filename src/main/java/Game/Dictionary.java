@@ -36,4 +36,8 @@ public class Dictionary {
             e.printStackTrace();
         }
     }
+    public String getActionLabel(String input) {
+        Integer actionID = maps.get(input);
+        return actions.get(actionID);
+    }
 }
