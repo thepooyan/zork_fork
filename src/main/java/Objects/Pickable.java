@@ -8,6 +8,11 @@ public class Pickable implements Object {
        this.weight = weight;
     }
     public void pickup(Game game) {
-        System.out.println("picked up");
+        game.addToInventory(this);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
     }
 }

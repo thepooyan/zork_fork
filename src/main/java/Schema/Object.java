@@ -1,3 +1,4 @@
 package Schema;
 
-public interface Object {}
+public interface Object {
+}

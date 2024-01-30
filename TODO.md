@@ -2,6 +2,7 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- action on inventory
 - excess code when wanting to add an action
 - get hidden note
 - inventory and health bar

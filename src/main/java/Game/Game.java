@@ -1,9 +1,13 @@
 package Game;
 
 import Schema.Action;
+import Schema.Object;
 import Util.Prompt;
 import Schema.View;
 import Schema.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
     private Prompt prompt = new Prompt();
@@ -11,6 +15,7 @@ public class Game {
     private World currentWorld = new World();
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
+    private List<Object> inventory = new ArrayList<>();
 
     public void start() {
         describeView();
@@ -43,5 +48,14 @@ public class Game {
 
     public World getCurrentWorld() {
         return currentWorld;
+    }
+
+    public List<Object> getInventory() {
+        return inventory;
+    }
+
+    public void addToInventory(Object inventory) {
+        this.inventory.add(inventory);
+        System.out.println(inventory.getClass().getSimpleName() + " added to inventory");
     }
 }

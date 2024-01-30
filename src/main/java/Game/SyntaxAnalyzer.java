@@ -20,6 +20,9 @@ public class SyntaxAnalyzer {
             default -> {
                 return new Idol();
             }
+            case "inventory" -> {
+                return new InventoryQuery();
+            }
             case "move" -> {
                 Direction direction = switch (chunks[1]) {
                     case "up", "north" -> Direction.north;

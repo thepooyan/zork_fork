@@ -10,5 +10,6 @@
   ],
   "read": ["r"],
   "pick": ["p"],
-  "open": ["o"]
+  "open": ["o"],
+  "inventory": ["i"]
 }
