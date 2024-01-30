@@ -12,7 +12,7 @@ public class Dictionary {
     public Map<String, Integer> maps = new HashMap<>();
 
     public Dictionary() {
-        File dict = new File("src/main/java/Game/Dict.json");
+        File dict = new File("src/main/java/Dict/Dict.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
 
