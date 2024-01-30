@@ -1,5 +1,9 @@
 package Game;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 import java.util.*;
 
 public class Dictionary {
@@ -8,28 +12,28 @@ public class Dictionary {
     public Map<String, Integer> maps = new HashMap<>();
 
     public Dictionary() {
-        actions.put(0, "move");
-        maps.put("move", 0);
-        maps.put("go", 0);
-        maps.put("travel", 0);
+        File dict = new File("src/main/java/Game/Dict.json");
 
-        actions.put(1, "describe");
-        maps.put("describe", 1);
-        maps.put("tell", 1);
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        actions.put(2, "exit");
-        maps.put("exit", 2);
-        maps.put("end", 2);
-        maps.put("done", 2);
-        maps.put("out", 2);
+        try {
+            JsonNode jsonNode = objectMapper.readTree(dict);
 
-        actions.put(3, "read");
-        maps.put("read", 3);
+            List<String> keysList = new ArrayList<>();
+            jsonNode.fieldNames().forEachRemaining(keysList::add);
 
-        actions.put(4, "pick");
-        maps.put("pick", 4);
-
-        actions.put(5, "open");
-        maps.put("open", 5);
+            for (int i = 0; i < keysList.size(); i++) {
+                String node = keysList.get(i);
+                JsonNode namesArray = jsonNode.get(node);
+                actions.put(i, node);
+                maps.put(node, i);
+                int finalI = i;
+                namesArray.forEach(inner -> {
+                    maps.put(inner.asText(), finalI);
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

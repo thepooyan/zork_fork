@@ -1,0 +1,14 @@
+{
+  "move": [
+    "m","go", "travel"
+  ],
+  "describe": [
+    "d","tell"
+  ],
+  "exit": [
+    "e","end", "done", "out"
+  ],
+  "read": ["r"],
+  "pick": ["p"],
+  "open": ["o"]
+}
