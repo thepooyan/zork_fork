@@ -77,4 +77,7 @@ public class Game {
         setInventory(list);
     }
 
+    public int getCarryWeight() {
+        return carryWeight.getValue();
+    }
 }
