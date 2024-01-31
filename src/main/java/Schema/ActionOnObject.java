@@ -8,7 +8,7 @@ import java.util.Optional;
 public class ActionOnObject<O extends Object> extends Schema.Action {
     private String actionLabel;
     private String objectName;
-    public void applyAction(O a, Game game) {}
+    public void applyAction(O object, Game game) {}
 
     public void setActionLabel(String actionLabel) {
         this.actionLabel = actionLabel;

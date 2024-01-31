@@ -13,7 +13,7 @@ public class Pick extends ActionOnObject<Pickable> {
 
 
     @Override
-    public void applyAction(Pickable a, Game game) {
-        a.pickup(game);
+    public void applyAction(Pickable object, Game game) {
+        object.pickup(game);
     }
 }

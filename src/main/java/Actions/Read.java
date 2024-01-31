@@ -12,7 +12,7 @@ public class Read extends ActionOnObject<Readable> {
     }
 
     @Override
-    public void applyAction(Readable a, Game game) {
-        a.read();
+    public void applyAction(Readable object, Game game) {
+        object.read();
     }
 }
