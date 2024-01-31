@@ -8,15 +8,21 @@ import Schema.View;
 import java.awt.geom.Point2D;
 
 public class Move extends Action {
-    public Direction direction;
-
-    public Move(Direction direction) {
-        this.direction = direction;
-    }
     @Override
     public void apply(Game game) {
+        if (countChunksNot(1)) {
+            System.out.println("move where?!?");
+            return;
+        }
+        Direction direction = switch (chunks[0]) {
+            case "up", "north" -> Direction.north;
+            case "down", "south" -> Direction.south;
+            case "left", "west" -> Direction.west;
+            case "right", "east" -> Direction.east;
+            default -> null;
+        };
         if (direction == null) {
-            System.out.println("moving to where?!?");
+            System.out.println("moving to " + chunks[0] + "?!?");
             return;
         }
         if (!game.getCurrentView().getNeighbours().contains(direction)) {

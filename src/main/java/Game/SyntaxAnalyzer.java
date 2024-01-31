@@ -1,9 +1,10 @@
 package Game;
 
 import Actions.*;
-import Enums.Direction;
-import Actions.Read;
 import Schema.Action;
+
+import java.io.PrintStream;
+import java.util.Arrays;
 
 public class SyntaxAnalyzer {
     Dictionary dictionary = new Dictionary();
@@ -16,44 +17,26 @@ public class SyntaxAnalyzer {
        if (actionLabel == null) {
            return new Unkown(chunks[0]);
        }
-        switch (actionLabel) {
-            default -> {
-                return new Idol();
+       String className = actionLabel.substring(0, 1).toUpperCase().concat(actionLabel.substring(1));
+
+        try {
+            Class<?> clazz = Class.forName("Actions." + className);
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+
+            if (instance instanceof Action action) {
+
+                if (chunks.length > 1) {
+                    String[] newArray = Arrays.copyOfRange(chunks, 1, chunks.length);
+                    action.setChunks(newArray);
+                }
+
+                return action;
             }
-            case "clear" -> {
-                return new Clear();
-            }
-            case "drop" -> {
-                return new Drop(chunks[1]);
-            }
-            case "inventory" -> {
-                return new InventoryQuery();
-            }
-            case "move" -> {
-                Direction direction = switch (chunks[1]) {
-                    case "up", "north" -> Direction.north;
-                    case "down", "south" -> Direction.south;
-                    case "left", "west" -> Direction.west;
-                    case "right", "east" -> Direction.east;
-                    default -> null;
-                };
-                return new Move(direction);
-            }
-            case "describe" -> {
-                return new DescribeView();
-            }
-            case "exit" -> {
-                return new Exit();
-            }
-            case "read" -> {
-               return new Read(chunks[1]);
-            }
-            case "pick" -> {
-                return new Pick(chunks[1]);
-            }
-            case "open" -> {
-                return new Open(chunks[1]);
-            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        return new Idol();
     }
 }

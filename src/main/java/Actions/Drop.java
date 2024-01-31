@@ -3,31 +3,28 @@ package Actions;
 import Game.Game;
 import Objects.Pickable;
 import Schema.Action;
-import Schema.Object;
 
-import java.util.List;
 import java.util.Optional;
 
 public class Drop extends Action {
-    private String item;
-
-    public Drop(String item) {
-        this.item = item;
-    }
-
     @Override
     public void apply(Game game) {
+        if (countChunksNot(1)) {
+            System.out.println("you can only drop one thing");
+            return;
+        }
+
         Optional<Pickable> dropping = game
                 .getInventory()
                 .stream()
-                .filter(a -> a.toString().equalsIgnoreCase(this.item))
+                .filter(a -> a.toString().equalsIgnoreCase(this.chunks[0]))
                 .findFirst();
         dropping.ifPresentOrElse(
                 a -> {
                     game.dropFromInventory(a);
                     System.out.println("dropped: " + a);
                 },
-                () -> System.out.println("you haveee no " + this.item)
+                () -> System.out.println("you have no " + this.chunks[0])
         );
 
     }

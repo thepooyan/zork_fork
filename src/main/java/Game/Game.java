@@ -2,7 +2,6 @@ package Game;
 
 import Objects.Pickable;
 import Schema.Action;
-import Schema.Object;
 import Util.Prompt;
 import Schema.View;
 import Schema.World;
