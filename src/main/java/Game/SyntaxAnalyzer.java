@@ -20,6 +20,9 @@ public class SyntaxAnalyzer {
             default -> {
                 return new Idol();
             }
+            case "drop" -> {
+                return new Drop(chunks[1]);
+            }
             case "inventory" -> {
                 return new InventoryQuery();
             }

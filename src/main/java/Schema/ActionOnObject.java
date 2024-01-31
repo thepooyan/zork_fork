@@ -23,7 +23,7 @@ public class ActionOnObject<O extends Object> extends Schema.Action {
             Optional<O> object = game.getCurrentView()
                     .getObjects()
                     .stream()
-                    .filter(a -> a.getClass().getSimpleName().equalsIgnoreCase(objectName))
+                    .filter(a -> a.toString().equalsIgnoreCase(objectName))
                     .map(a -> (O) a)
                     .findFirst(); //cannot handle more than one action at a view
             object.ifPresentOrElse(

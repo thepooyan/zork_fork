@@ -16,7 +16,7 @@ public class Game {
     private World currentWorld = new World();
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
-    private List<Object> inventory = new ArrayList<>();
+    private List<Pickable> inventory = new ArrayList<>();
     private CarryWeight carryWeight = new CarryWeight(100);
 
     public void start() {
@@ -52,17 +52,29 @@ public class Game {
         return currentWorld;
     }
 
-    public List<Object> getInventory() {
+    public List<Pickable> getInventory() {
         return inventory;
     }
 
-    public void addToInventory(Pickable inventory) {
-        boolean result = carryWeight.increaseValue(inventory.getWeight());
+    private void setInventory(List<Pickable> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void addToInventory(Pickable item) {
+        boolean result = carryWeight.increaseValue(item.getWeight());
         if (result) {
-            this.inventory.add(inventory);
-            System.out.println(inventory.getClass().getSimpleName() + " added to inventory");
+            this.inventory.add(item);
+            System.out.println(item + " added to inventory");
         } else {
             System.out.println("cannot pickup, inventory full!\n(drop some items to be able to pick up more)");
         }
     }
+    public void dropFromInventory(Pickable item) {
+        carryWeight.decreaseValue(item.getWeight());
+        List<Pickable> list = getInventory().stream()
+                .filter(a -> !a.equals(item)).toList();
+
+        setInventory(list);
+    }
+
 }
