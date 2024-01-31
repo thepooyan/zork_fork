@@ -9,10 +9,7 @@ import java.util.Optional;
 public class Drop extends Action {
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) {
-            System.out.println("you can only drop one thing");
-            return;
-        }
+        if (countChunksNot(1)) return;
 
         Optional<Pickable> dropping = game
                 .getInventory()

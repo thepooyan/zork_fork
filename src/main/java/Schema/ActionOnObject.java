@@ -9,10 +9,7 @@ public class ActionOnObject<O extends Object> extends Schema.Action {
     public void applyAction(O a, Game game) {}
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) {
-            System.out.println("open what?!?");
-            return;
-        }
+        if (countChunksNot(1)) return;
         String objectName = chunks[0];
 
         try {

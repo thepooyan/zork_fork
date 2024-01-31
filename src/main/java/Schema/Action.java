@@ -4,7 +4,7 @@ import Game.Game;
 import java.util.Arrays;
 
 public abstract class Action {
-    protected String[] chunks;
+    protected String[] chunks = {};
 
     public Action() {}
 
@@ -15,7 +15,15 @@ public abstract class Action {
     }
 
     public boolean countChunksNot(int count) {
-        if (chunks == null) return true;
-        return Arrays.stream(chunks).count() != count;
+        if (chunks == null | Arrays.stream(chunks).count() != count) {
+            System.out.println(this + " what?!?");
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName().toLowerCase();
     }
 }

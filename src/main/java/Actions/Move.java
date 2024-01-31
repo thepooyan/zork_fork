@@ -10,10 +10,8 @@ import java.awt.geom.Point2D;
 public class Move extends Action {
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) {
-            System.out.println("move where?!?");
-            return;
-        }
+        if (countChunksNot(1)) return;
+
         Direction direction = switch (chunks[0]) {
             case "up", "north" -> Direction.north;
             case "down", "south" -> Direction.south;
