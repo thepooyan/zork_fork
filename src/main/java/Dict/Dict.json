@@ -12,5 +12,6 @@
   "pick": ["p"],
   "open": ["o"],
   "inventory": ["i"],
-  "drop": ["d"]
+  "drop": ["d"],
+  "clear": ["c"]
 }
