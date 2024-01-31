@@ -8,8 +8,8 @@ import java.util.*;
 
 public class Dictionary {
 
-    public Map<Integer, String> actions = new HashMap<>();
-    public Map<String, Integer> maps = new HashMap<>();
+    private Map<Integer, String> actions = new HashMap<>();
+    private Map<String, Integer> maps = new HashMap<>();
 
     public Dictionary() {
         File dict = new File("src/main/java/Dict/Dict.json");
