@@ -5,10 +5,6 @@ import Objects.Openable;
 import Schema.ActionOnObject;
 
 public class Open extends ActionOnObject<Openable> {
-    public Open(String objectName) {
-        super(objectName);
-    }
-
     @Override
     public void applyAction(Openable object, Game game) {
         object.open(game);

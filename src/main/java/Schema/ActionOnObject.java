@@ -6,14 +6,15 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ActionOnObject<O extends Object> extends Schema.Action {
-    private final String objectName;
     public void applyAction(O a, Game game) {}
-
-    public ActionOnObject(String objectName) {
-        this.objectName = objectName;
-    }
     @Override
     public void apply(Game game) {
+        if (countChunksNot(1)) {
+            System.out.println("open what?!?");
+            return;
+        }
+        String objectName = chunks[0];
+
         try {
             Optional<O> object = game.getCurrentView()
                     .getObjects()
