@@ -2,6 +2,7 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- drop or pick multiple things
 - complete inventory
 - cannot pick the letter
 - action on inventory
