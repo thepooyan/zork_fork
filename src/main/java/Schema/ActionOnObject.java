@@ -35,7 +35,7 @@ public class ActionOnObject<O extends Object> extends Schema.Action {
             );
 
         } catch (Exception e) {
-            System.out.println("how should i " + actionLabel + " the " + objectName + "?!?! :/");
+            System.out.println("how should i " + this.getClass().getSimpleName() + " the " + objectName + "?!?! :/");
         }
     }
 }

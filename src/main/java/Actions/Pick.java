@@ -8,7 +8,6 @@ import Schema.ActionOnObject;
 public class Pick extends ActionOnObject<Pickable> {
     public Pick(String objectName) {
         super(objectName);
-        setActionLabel("pick");
     }
 
 

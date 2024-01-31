@@ -8,7 +8,6 @@ public class Read extends ActionOnObject<Readable> {
 
     public Read(String objectName) {
         super(objectName);
-        setActionLabel("read");
     }
 
     @Override

@@ -7,7 +7,6 @@ import Schema.ActionOnObject;
 public class Open extends ActionOnObject<Openable> {
     public Open(String objectName) {
         super(objectName);
-        setActionLabel("open");
     }
 
     @Override
