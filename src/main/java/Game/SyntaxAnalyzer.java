@@ -16,10 +16,9 @@ public class SyntaxAnalyzer {
        if (actionLabel == null) {
            return new Unkown(chunks[0]);
        }
-       String className = actionLabel.substring(0, 1).toUpperCase().concat(actionLabel.substring(1));
 
         try {
-            Class<?> clazz = Class.forName("Actions." + className);
+            Class<?> clazz = Class.forName("Actions." + actionLabel);
             Object instance = clazz.getDeclaredConstructor().newInstance();
 
             if (instance instanceof Action action) {

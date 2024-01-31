@@ -2,14 +2,12 @@ package Game;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.util.*;
 
 public class Dictionary {
-
-    private Map<Integer, String> actions = new HashMap<>();
-    private Map<String, Integer> maps = new HashMap<>();
+    private final Map<Integer, String> actions = new HashMap<>();
+    private final Map<String, Integer> maps = new HashMap<>();
 
     public Dictionary() {
         File dict = new File("src/main/java/Dict/Dict.json");
@@ -38,6 +36,7 @@ public class Dictionary {
     }
     public String getActionLabel(String input) {
         Integer actionID = maps.get(input);
-        return actions.get(actionID);
+        String action = actions.get(actionID);
+        return action.substring(0,1).toUpperCase().concat(action.substring(1).toLowerCase());
     }
 }
