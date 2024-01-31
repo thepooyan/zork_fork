@@ -10,6 +10,8 @@ public class SyntaxAnalyzer {
     Dictionary dictionary = new Dictionary();
     public Action analyzeResponse(String response) {
        response = response.toLowerCase();
+       if (response.equals("")) return new Idol();
+
        String[] chunks = response.split(" ");
 
        String actionLabel = dictionary.getActionLabel(chunks[0]);

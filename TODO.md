@@ -2,6 +2,7 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- idol says diffrent random things!
 - adding the veiws to the world manually is not good
 - dont have to add to dictionary every action that is added
 - drop or pick multiple things
