@@ -6,13 +6,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ActionOnObject<O extends Object> extends Schema.Action {
-    private String actionLabel;
-    private String objectName;
-    public void applyAction(O object, Game game) {}
-
-    public void setActionLabel(String actionLabel) {
-        this.actionLabel = actionLabel;
-    }
+    private final String objectName;
+    public void applyAction(O a, Game game) {}
 
     public ActionOnObject(String objectName) {
         this.objectName = objectName;
