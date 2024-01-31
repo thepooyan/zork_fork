@@ -2,8 +2,6 @@ package Game;
 
 import Actions.*;
 import Schema.Action;
-
-import java.io.PrintStream;
 import java.util.Arrays;
 
 public class SyntaxAnalyzer {
