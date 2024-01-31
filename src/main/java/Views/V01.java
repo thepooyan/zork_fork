@@ -14,7 +14,7 @@ public class V01 extends View {
         super(
                 "you reach a door. there's a letter",
             new Point2D.Double(0,1),
-            new ArrayList<>(List.of(Direction.east))
+            new ArrayList<>(List.of(Direction.south))
         );
         this.addObjects(new Letter("this is the letter itself"));
         this.setHiddenNote("the door is locked;");
