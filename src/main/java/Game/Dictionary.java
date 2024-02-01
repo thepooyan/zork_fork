@@ -34,9 +34,12 @@ public class Dictionary {
             e.printStackTrace();
         }
     }
-    public String getActionLabel(String input) {
+    public Optional<String> getActionLabel(String input) {
         Integer actionID = maps.get(input);
         String action = actions.get(actionID);
-        return action.substring(0,1).toUpperCase().concat(action.substring(1).toLowerCase());
+        if (action == null) {
+            return Optional.empty();
+        }
+        return Optional.of(action.substring(0,1).toUpperCase().concat(action.substring(1).toLowerCase()));
     }
 }
