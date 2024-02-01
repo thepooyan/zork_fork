@@ -11,6 +11,7 @@
   "read": ["r"],
   "pick": ["p"],
   "open": ["o"],
+  "inventory": ["i"],
   "drop": ["d"],
   "clear": ["c"]
 }
