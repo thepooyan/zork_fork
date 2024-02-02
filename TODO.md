@@ -2,6 +2,7 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- flip the table
 - better way to make views. (remove direction by hand, writing syntax?!)
 - idol says diffrent random things!
 - adding the veiws to the world manually is not good
