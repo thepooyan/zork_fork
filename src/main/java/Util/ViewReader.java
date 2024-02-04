@@ -1,51 +1,113 @@
 package Util;
 
 import Enums.Direction;
+import Objects.Box;
+import Objects.Letter;
+import Schema.Object;
+import Schema.World;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import Schema.View;
-
 import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewReader {
-    private final static String viewsFolder = "src/main/java/Views/";
+public class ViewReader implements World {
+    private final String viewsFolder;
 
-    public View readView(int x, int y) {
-        File file = new File(viewsFolder + x + "-" + y + ".xml");
+    public ViewReader(String worldLabel) {
+        String viewsFolderBase = "src/main/java/Worlds/";
+        this.viewsFolder = viewsFolderBase + worldLabel + "/";
+    }
+    private String getFileName(int x, int y) {
+       return viewsFolder + x + "_" + y + ".xml";
+    }
+
+    private String trimXmlIndent(String input) {
+        input = input.replaceAll(" +", " ");
+        input = input.replaceAll("\n ", "\n");
+        return input;
+    }
+
+    private List<Object> getObjectsFromNode(Element node) {
+        List<Object> objects = new ArrayList<>();
+
+        node.getChildren().forEach(child->{
+            switch (child.getName()) {
+                case "box" -> {
+                    Element element = child.getChildren().get(0);
+                    objects.add(new Box(null));
+                }
+                case "letter" -> {
+                    String content = child.getTextTrim();
+                    content = trimXmlIndent(content);
+                    objects.add(new Letter(content));
+                }
+                case "key" -> {
+                    System.out.println("it's a key");
+                }
+                case "lock" -> {
+                    System.out.println("it's a lock");
+                }
+            }
+        });
+        return objects;
+    }
+    private List<Direction> getPositionNeighbours(int x, int y) {
+        List<Direction> neighbours = new ArrayList<>();
+
+        File file1 = new File(getFileName(x-1, y));
+        if (file1.exists()) {
+            neighbours.add(Direction.west);
+        }
+        File file2 = new File(getFileName(x+1, y));
+        if (file2.exists()) {
+            neighbours.add(Direction.east);
+        }
+        File file3 = new File(getFileName(x, y+1));
+        if (file3.exists()) {
+            neighbours.add(Direction.north);
+        }
+        File file4 = new File(getFileName(x, y-1));
+        if (file4.exists()) {
+            neighbours.add(Direction.south);
+        }
+
+        return neighbours;
+    }
+
+    @Override
+    public View getView(int x, int y) {
+        File file = new File(getFileName(x,y));
         SAXBuilder builder = new SAXBuilder();
         try {
-            //root element
+            //get root element
             Document document = builder.build(file);
             Element root = document.getRootElement();
-            //story note
-            String storyNote = root.getChildTextTrim("story_note");
-            //neighbours
-            List<Direction> neighbours = new ArrayList<>();
-            Element route = root.getChild("route");
-            if (route.getChildTextTrim("north").equals("1")) {
-                neighbours.add(Direction.north);
-            }
-            if (route.getChildTextTrim("south").equals("1")) {
-                neighbours.add(Direction.south);
-            }
-            if (route.getChildTextTrim("east").equals("1")) {
-                neighbours.add(Direction.east);
-            }
-            if (route.getChildTextTrim("west").equals("1")) {
-                neighbours.add(Direction.west);
-            }
 
-            return new View(storyNote, new Point2D.Double(x,y), neighbours);
+            //get story note
+            String storyNote = root.getChildTextTrim("story_note");
+            storyNote = trimXmlIndent(storyNote);
+
+            //get neighbours
+            List<Direction> neighbours = getPositionNeighbours(x, y);
+
+            //get objects
+            Element ObjectsNode = root.getChild("objects");
+            List<Object> objects = getObjectsFromNode(ObjectsNode);
+
+            //get hidden massage
+
+
+            return new View(storyNote, new Point2D.Double(x,y), neighbours, objects);
+
         } catch (JDOMException | IOException e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
-
 }

@@ -5,6 +5,7 @@ import Schema.Action;
 import Schema.World;
 import Util.Prompt;
 import Schema.View;
+import Util.ViewReader;
 import Worlds.World_1;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Game {
     private Prompt prompt = new Prompt();
     private SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    private World currentWorld = new World_1();
+    private World currentWorld = new ViewReader("World1");
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
     private List<Pickable> inventory = new ArrayList<>();
