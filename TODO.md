@@ -2,6 +2,8 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- shout action
+- search action to open hidden note, with a keyword
 - play balder's gate
 - burn the letter
 - flip the table
