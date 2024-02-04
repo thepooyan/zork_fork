@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class World implements Schema.World {
+public class World_1 implements Schema.World {
     private final Map<String, View> views = new HashMap<>();
-    public World() {
+    public World_1() {
         views.put("00", new View(
                 "there's a box here on the table",
                 new Point2D.Double(0,0),
@@ -27,9 +27,12 @@ public class World implements Schema.World {
                 List.of(new Letter("shout the code")),
                 "door is locked"
         ));
-        views.put("10", new View("slsls", new Point2D.Double(1,0), List.of(Direction.west)));
+        views.put("10", new View(
+                "slsls", new Point2D.Double(1,0), List.of(Direction.west)
+        ));
     }
 
+    @Override
     public View getView(int x, int y) {
        return views.get(Integer.toString(x)+Integer.toString(y));
     }
