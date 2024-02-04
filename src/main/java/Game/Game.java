@@ -4,7 +4,7 @@ import Objects.Pickable;
 import Schema.Action;
 import Util.Prompt;
 import Schema.View;
-import Schema.World;
+import Worlds.World;
 
 import java.util.ArrayList;
 import java.util.List;

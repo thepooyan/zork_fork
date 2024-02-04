@@ -11,12 +11,25 @@ public class View {
         this.coordinates = coordinates;
         this.neighbours = neighbours;
     }
+    public View(String storyNote, Point2D coordinates, List<Direction> neighbours, List<Object> objects) {
+        this.storyNote = storyNote;
+        this.coordinates = coordinates;
+        this.neighbours = neighbours;
+        this.objects = objects;
+    }
+    public View(String storyNote, Point2D coordinates, List<Direction> neighbours, List<Object> objects, String hiddenNote) {
+        this.storyNote = storyNote;
+        this.coordinates = coordinates;
+        this.neighbours = neighbours;
+        this.objects = objects;
+        this.hiddenNote = hiddenNote;
+    }
 
     private String storyNote = "nothing!";
     public Point2D coordinates = new Point2D.Double(0,0);
     private List<Object> objects = new ArrayList<>();
-    private String hiddenNote = "nothing!";
     private List<Direction> neighbours = new ArrayList<>();
+    private String hiddenNote = "nothing!";
 
     public String getStoryNote() {
         return storyNote;
@@ -30,7 +43,7 @@ public class View {
         return objects;
     }
 
-    public void addObjects(Object object) {
+    public void addObject(Object object) {
         this.objects.add(object);
     }
 
@@ -40,9 +53,5 @@ public class View {
 
     public List<Direction> getNeighbours() {
         return neighbours;
-    }
-
-    public void setHiddenNote(String hiddenNote) {
-        this.hiddenNote = hiddenNote;
     }
 }
