@@ -47,7 +47,7 @@ public class SyntaxAnalyzer {
     public Action prepareAction(Action action, String[] chunks) {
         if (chunks.length > 1) {
             String[] newArray = Arrays.copyOfRange(chunks, 1, chunks.length);
-            action.setChunks(newArray);
+            action.setArguments(newArray);
         }
         return action;
     }

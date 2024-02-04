@@ -8,11 +8,13 @@ import Schema.View;
 import java.awt.geom.Point2D;
 
 public class Move extends Action {
+    public Move() {
+        setExpectedArgumnets(1);
+    }
+
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) return;
-
-        Direction direction = switch (chunks[0]) {
+        Direction direction = switch (arguments[0]) {
             case "up", "north" -> Direction.north;
             case "down", "south" -> Direction.south;
             case "left", "west" -> Direction.west;
@@ -20,7 +22,7 @@ public class Move extends Action {
             default -> null;
         };
         if (direction == null) {
-            System.out.println("moving to " + chunks[0] + "?!?");
+            System.out.println("moving to " + arguments[0] + "?!?");
             return;
         }
         if (!game.getCurrentView().getNeighbours().contains(direction)) {

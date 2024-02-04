@@ -4,19 +4,28 @@ import Game.Game;
 import java.util.Arrays;
 
 public abstract class Action {
-    protected String[] chunks = {};
+    protected String[] arguments = {};
+    protected int expectedArgumnets = 0;
 
     public Action() {}
 
     public abstract void apply(Game game);
-
-    public void setChunks(String[] chunks) {
-        this.chunks = chunks;
+    public void safeApply(Game game) {
+        if (notEnoughArguments()) return;
+        apply(game);
     }
 
-    public boolean countChunksNot(int count) {
-        if (chunks == null | Arrays.stream(chunks).count() != count) {
-            System.out.println(this + " what?!?");
+    public void setArguments(String[] arguments) {
+        this.arguments = arguments;
+    }
+
+    public void setExpectedArgumnets(int expectedArgumnets) {
+        this.expectedArgumnets = expectedArgumnets;
+    }
+
+    public boolean notEnoughArguments() {
+        if (Arrays.stream(arguments).count() != expectedArgumnets) {
+            System.out.println("you need to use " + this + " with " + expectedArgumnets + " arguments.");
             return true;
         }
         return false;

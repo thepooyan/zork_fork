@@ -2,15 +2,13 @@ package Schema;
 
 import Game.Game;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 public class ActionOnObject<O extends Object> extends Schema.Action {
     public void applyAction(O a, Game game) {}
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) return;
-        String objectName = chunks[0];
+        String objectName = arguments[0];
 
         try {
             Optional<O> object = game.getCurrentView()

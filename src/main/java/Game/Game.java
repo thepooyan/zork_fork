@@ -32,7 +32,7 @@ public class Game {
     public void gameLoop() {
         String response = prompt.get("=> ");
         Action action = syntaxAnalyzer.analyzeResponse(response);
-        action.apply(this);
+        action.safeApply(this);
         if (stop) return;
         gameLoop();
     }

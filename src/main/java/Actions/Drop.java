@@ -7,21 +7,23 @@ import Schema.Action;
 import java.util.Optional;
 
 public class Drop extends Action {
+    public Drop() {
+        setExpectedArgumnets(1);
+    }
     @Override
     public void apply(Game game) {
-        if (countChunksNot(1)) return;
 
         Optional<Pickable> dropping = game
                 .getInventory()
                 .stream()
-                .filter(a -> a.toString().equalsIgnoreCase(this.chunks[0]))
+                .filter(a -> a.toString().equalsIgnoreCase(this.arguments[0]))
                 .findFirst();
         dropping.ifPresentOrElse(
                 a -> {
                     game.dropFromInventory(a);
                     System.out.println("dropped: " + a);
                 },
-                () -> System.out.println("you have no " + this.chunks[0])
+                () -> System.out.println("you have no " + this.arguments[0])
         );
 
     }
