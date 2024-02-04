@@ -1,17 +1,8 @@
 <view>
     <story_note>
-        hehe
+        there's a room
     </story_note>
-    <objects>
-        <box>
-            <letter>
-                by the time you read this,
-                I should be gone.
-                and so will you!
-            </letter>
-        </box>
-    </objects>
-    <hidden_note keyword="table">
-        there's a code written under the table: 663!
+    <hidden_note keyword="room">
+        room is scary!
     </hidden_note>
 </view>

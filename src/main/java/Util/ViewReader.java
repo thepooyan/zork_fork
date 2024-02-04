@@ -105,8 +105,10 @@ public class ViewReader implements World {
             List<Direction> neighbours = getPositionNeighbours(x, y);
 
             //get objects
-            Element ObjectsNode = root.getChild("objects");
-            List<Object> objects = getObjectsFromNode(ObjectsNode);
+            Element objectsNode = root.getChild("objects");
+            List<Object> objects = new ArrayList<>();
+            if (objectsNode != null)
+                objects = getObjectsFromNode(objectsNode);
 
             //get hidden massage
 
