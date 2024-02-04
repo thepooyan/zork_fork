@@ -16,6 +16,7 @@ import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ViewReader implements World {
@@ -111,9 +112,13 @@ public class ViewReader implements World {
                 objects = getObjectsFromNode(objectsNode);
 
             //get hidden massage
+            Element hiddenNote = root.getChild("hidden_note");
+            HashMap<String, String> hiddenMsg = new HashMap<>();
+            if (hiddenNote != null) {
+               hiddenMsg.put(hiddenNote.getAttributeValue("keyword"), trimXmlIndent(hiddenNote.getValue()));
+            }
 
-
-            return new View(storyNote, new Point2D.Double(x,y), neighbours, objects);
+            return new View(storyNote, new Point2D.Double(x,y), neighbours, objects, hiddenMsg);
 
         } catch (JDOMException | IOException e) {
             System.out.println(e.getMessage());
