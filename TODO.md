@@ -5,25 +5,16 @@ to make:
 - MinimumExpectedArgs -> fix search action
 - shout action
 - key and lock objects
-- search action to open hidden note, with a keyword
-- play balder's gate
 - burn the letter
 - flip the table
-- better way to make views. (remove direction by hand, writing syntax?!)
 - idol says diffrent random things!
-- adding the veiws to the world manually is not good
-- dont have to add to dictionary every action that is added
 - drop or pick multiple things
 - complete inventory
-- cannot pick the letter
+- test existing actions: (open, pick)
 - action on inventory
-- excess code when wanting to add an action
-- get hidden note
-- inventory and health bar
-- inventory query
-- directions query
-- healthbar
+- health bar
 - health query
+- directions query
 - npc creation ?!?!
 - npc interactions
 - involantary actions (like death, time bomb, npc talking to you)
@@ -36,3 +27,4 @@ to make:
 for later:
 - handle multiple word actions
 - create a health checker for views
+- syntax heighlighter for views?
