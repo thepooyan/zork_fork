@@ -11,6 +11,8 @@
                 and so will you!
             </letter>
         </box>
+        <lockedDoor id="12s"/>
+        <key id="12s"/>
     </objects>
     <hidden_notes>
         <note keyword="table">

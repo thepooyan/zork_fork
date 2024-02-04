@@ -45,7 +45,7 @@ public class Move extends Action {
                 dest =  new Point2D.Double(coordinates.getX(), coordinates.getY()-1);
                 break;
         }
-        View newView = game.getCurrentWorld().getView((int) dest.getX(), (int) dest.getY());
+        View newView = game.getCurrentWorld().getView(dest.getX(), dest.getY());
         game.setCurrentView(newView);
         System.out.println("moving to " + direction);
         game.describeView();

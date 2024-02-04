@@ -1,5 +1,5 @@
 package Schema;
 
 public interface World {
-    View getView(int x, int y);
+    View getView(double x, double y);
 }

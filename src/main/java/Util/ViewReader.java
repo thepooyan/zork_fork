@@ -26,7 +26,7 @@ public class ViewReader implements World {
         String viewsFolderBase = "src/main/java/Worlds/";
         this.viewsFolder = viewsFolderBase + worldLabel + "/";
     }
-    private String getFileName(int x, int y) {
+    private String getFileName(double x, double y) {
        return viewsFolder + x + "_" + y + ".xml";
     }
 
@@ -66,7 +66,7 @@ public class ViewReader implements World {
         });
         return objects;
     }
-    private List<Direction> getPositionNeighbours(int x, int y) {
+    private List<Direction> getPositionNeighbours(double x, double y) {
         List<Direction> neighbours = new ArrayList<>();
 
         File file1 = new File(getFileName(x-1, y));
@@ -90,7 +90,7 @@ public class ViewReader implements World {
     }
 
     @Override
-    public View getView(int x, int y) {
+    public View getView(double x, double y) {
         File file = new File(getFileName(x,y));
         SAXBuilder builder = new SAXBuilder();
         try {
