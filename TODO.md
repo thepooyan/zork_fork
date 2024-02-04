@@ -4,6 +4,7 @@ idea:
 to make:
 - MinimumExpectedArgs -> fix search action
 - shout action
+- key and lock objects
 - search action to open hidden note, with a keyword
 - play balder's gate
 - burn the letter
