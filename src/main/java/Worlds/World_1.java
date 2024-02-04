@@ -17,7 +17,7 @@ public class World_1 implements Schema.World {
                 "there's a box here on the table",
                 new Point2D.Double(0,0),
                 List.of(Direction.north, Direction.east),
-                List.of(new Box(new Letter("this is letter"))),
+                List.of(new Box(List.of(new Letter("this is letter")))),
                 "a code written under the table: 663"
               ));
         views.put("01", new View(

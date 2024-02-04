@@ -40,7 +40,7 @@ public class ViewReader implements World {
             switch (child.getName()) {
                 case "box" -> {
                     Element element = child.getChildren().get(0);
-                    objects.add(new Box(null));
+                    objects.add(new Box());
                 }
                 case "letter" -> {
                     String content = child.getTextTrim();
