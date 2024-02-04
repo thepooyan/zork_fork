@@ -2,7 +2,6 @@ idea:
     remove junk from sentences before proccess
 
 to make:
-- MinimumExpectedArgs -> fix search action
 - shout action
 - key and lock objects
 - burn the letter

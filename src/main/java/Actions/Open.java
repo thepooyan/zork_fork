@@ -6,7 +6,7 @@ import Schema.ActionOnObject;
 
 public class Open extends ActionOnObject<Openable> {
     public Open() {
-        setExpectedArgumnets(1);
+        setExpectedArguments(1);
     }
 
     @Override

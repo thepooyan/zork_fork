@@ -6,7 +6,7 @@ import Schema.ActionOnObject;
 
 public class Read extends ActionOnObject<Readable> {
     public Read() {
-        setExpectedArgumnets(1);
+        setExpectedArguments(1);
     }
 
     @Override

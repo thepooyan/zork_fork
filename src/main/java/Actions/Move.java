@@ -9,7 +9,7 @@ import java.awt.geom.Point2D;
 
 public class Move extends Action {
     public Move() {
-        setExpectedArgumnets(1);
+        setExpectedArguments(1);
     }
 
     @Override

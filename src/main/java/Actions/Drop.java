@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Drop extends Action {
     public Drop() {
-        setExpectedArgumnets(1);
+        setExpectedArguments(1);
     }
     @Override
     public void apply(Game game) {

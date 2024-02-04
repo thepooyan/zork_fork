@@ -5,7 +5,9 @@ import java.util.Arrays;
 
 public abstract class Action {
     protected String[] arguments = {};
-    protected int expectedArgumnets = 0;
+    private int expectedArgumnets = 0;
+    private boolean isMininmum = false;
+
 
     public Action() {}
 
@@ -19,16 +21,30 @@ public abstract class Action {
         this.arguments = arguments;
     }
 
-    public void setExpectedArgumnets(int expectedArgumnets) {
-        this.expectedArgumnets = expectedArgumnets;
+    public void setExpectedArguments(int expectedArguments) {
+        this.expectedArgumnets = expectedArguments;
+        isMininmum = false;
+    }
+
+    public void setMinimumExpectedArguments(int minimumExpectedArguments) {
+        this.expectedArgumnets = minimumExpectedArguments;
+        isMininmum = true;
     }
 
     public boolean notEnoughArguments() {
-        if (Arrays.stream(arguments).count() != expectedArgumnets) {
-            System.out.println("you need to use " + this + " with " + expectedArgumnets + " arguments.");
-            return true;
+        if (isMininmum) {
+           if (Arrays.stream(arguments).count() < expectedArgumnets) {
+               System.out.println("you need to use " + this + " with " + expectedArgumnets + " minimum arguments.");
+               return true;
+           }
+           return false;
+        } else {
+            if (Arrays.stream(arguments).count() != expectedArgumnets) {
+               System.out.println("you need to use " + this + " with " + expectedArgumnets + " arguments.");
+               return true;
+           }
+            return false;
         }
-        return false;
     }
 
     @Override

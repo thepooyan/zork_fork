@@ -7,7 +7,7 @@ import Schema.ActionOnObject;
 
 public class Pick extends ActionOnObject<Pickable> {
     public Pick() {
-        setExpectedArgumnets(1);
+        setExpectedArguments(1);
     }
 
     @Override
