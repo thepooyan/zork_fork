@@ -115,12 +115,13 @@ public class ViewReader implements World {
             HashMap<String, String> hiddenNote = new HashMap<>();
             Element hiddenNotesNode = root.getChild("hidden_notes");
 
-            hiddenNotesNode.getChildren().forEach(child -> {
-                hiddenNote.put(
-                        child.getAttributeValue("keyword"),
-                        trimXmlIndent(child.getTextTrim())
-                );
-            });
+            if (hiddenNotesNode != null)
+                hiddenNotesNode.getChildren().forEach(child -> {
+                    hiddenNote.put(
+                            child.getAttributeValue("keyword"),
+                            trimXmlIndent(child.getTextTrim())
+                    );
+                });
 
             return new View(storyNote, new Point2D.Double(x,y), neighbours, objects, hiddenNote);
 
