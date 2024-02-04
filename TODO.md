@@ -2,7 +2,6 @@ idea:
     remove junk from sentences before proccess
 
 to make:
-- hidden note list 
 - MinimumExpectedArgs -> fix search action
 - shout action
 - search action to open hidden note, with a keyword

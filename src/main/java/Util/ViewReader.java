@@ -112,13 +112,17 @@ public class ViewReader implements World {
                 objects = getObjectsFromNode(objectsNode);
 
             //get hidden massage
-            Element hiddenNote = root.getChild("hidden_note");
-            HashMap<String, String> hiddenMsg = new HashMap<>();
-            if (hiddenNote != null) {
-               hiddenMsg.put(hiddenNote.getAttributeValue("keyword"), trimXmlIndent(hiddenNote.getValue()));
-            }
+            HashMap<String, String> hiddenNote = new HashMap<>();
+            Element hiddenNotesNode = root.getChild("hidden_notes");
 
-            return new View(storyNote, new Point2D.Double(x,y), neighbours, objects, hiddenMsg);
+            hiddenNotesNode.getChildren().forEach(child -> {
+                hiddenNote.put(
+                        child.getAttributeValue("keyword"),
+                        trimXmlIndent(child.getTextTrim())
+                );
+            });
+
+            return new View(storyNote, new Point2D.Double(x,y), neighbours, objects, hiddenNote);
 
         } catch (JDOMException | IOException e) {
             System.out.println(e.getMessage());

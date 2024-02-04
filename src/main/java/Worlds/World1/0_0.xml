@@ -12,7 +12,12 @@
             </letter>
         </box>
     </objects>
-    <hidden_note keyword="table">
-        there's a code written under the table: 663!
-    </hidden_note>
+    <hidden_notes>
+        <note keyword="table">
+            there's a code written under the table: 663!
+        </note>
+        <note keyword="rug">
+            second one
+        </note>
+    </hidden_notes>
 </view>
