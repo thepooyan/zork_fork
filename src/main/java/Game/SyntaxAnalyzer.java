@@ -23,7 +23,10 @@ public class SyntaxAnalyzer {
        Optional<String> actionLabel = dictionary.getActionLabel(chunks[0]);
 
        if (actionLabel.isPresent()) {
-           Action action = searchActions(actionLabel.get()).get();
+           String[] actionLabelParts = actionLabel.get().split(" ");
+           //if there are more than one word in it, it is an alias
+           Action action = searchActions(actionLabelParts[0]).get();
+           if (actionLabelParts.length > 1) chunks = actionLabelParts;
            return prepareAction(action, chunks);
        }
 

@@ -3,7 +3,7 @@
     "m","go", "travel"
   ],
   "describe": [
-    "d","tell"
+    "tell"
   ],
   "exit": [
     "e","end", "done", "out"
@@ -12,6 +12,9 @@
   "pick": ["p"],
   "open": ["o"],
   "inventory": ["i"],
-  "drop": ["d"],
-  "clear": ["c"]
+  "clear": ["c"],
+  "move right": ["r"],
+  "move left": ["l"],
+  "move up": ["u"],
+  "move down": ["d"]
 }
