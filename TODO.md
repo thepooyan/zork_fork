@@ -2,6 +2,8 @@ idea:
     remove junk from sentences before proccess
 
 to make:
+- play balder's gate
+- burn the letter
 - flip the table
 - better way to make views. (remove direction by hand, writing syntax?!)
 - idol says diffrent random things!
