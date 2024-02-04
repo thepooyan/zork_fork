@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Box extends Pickable implements Openable {
-    private final List<Pickable> content;
+    private List<Pickable> content;
     public Box(List<Pickable> content) {
         super(100 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0));
         this.content = content;
@@ -19,12 +19,14 @@ public class Box extends Pickable implements Openable {
     @Override
     public void open(Game game) {
         if (content.isEmpty()) {
-            System.out.println("the box was empty!");
+            System.out.println("the box is empty!");
             return;
         }
+        String contentS = content.stream().map(Pickable::toString).reduce((p,c)-> p + " and a " + c).get();
 
-        System.out.println("opening the box: there's a " + content.stream().map(Pickable::toString).reduce((p,c)-> p + "and" + c) + " inside.");
+        System.out.println("opening the box: there's a " + contentS + " inside.");
 
         game.getCurrentView().getObjects().addAll(content);
+        content = new ArrayList<>();
     }
 }

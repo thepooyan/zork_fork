@@ -1,8 +1,10 @@
 package Util;
 
+import Actions.Pick;
 import Enums.Direction;
 import Objects.Box;
 import Objects.Letter;
+import Objects.Pickable;
 import Schema.Object;
 import Schema.World;
 import org.jdom2.Document;
@@ -39,8 +41,14 @@ public class ViewReader implements World {
         node.getChildren().forEach(child->{
             switch (child.getName()) {
                 case "box" -> {
-                    Element element = child.getChildren().get(0);
-                    objects.add(new Box());
+                    List<Object> innerObjs = getObjectsFromNode(child);
+                    List<Pickable> content = new ArrayList<>();
+                    innerObjs.forEach(i -> {
+                        if (i instanceof Pickable) {
+                           content.add((Pickable) i);
+                        }
+                    });
+                    objects.add(new Box(content));
                 }
                 case "letter" -> {
                     String content = child.getTextTrim();
