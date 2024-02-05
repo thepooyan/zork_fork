@@ -27,7 +27,7 @@ public class ViewReader implements World {
         this.viewsFolder = viewsFolderBase + worldLabel + "/";
     }
     private String getFileName(double x, double y) {
-       return viewsFolder + x + "_" + y + ".xml";
+       return viewsFolder + (int) x + "_" + (int) y + ".xml";
     }
 
     private String trimXmlIndent(String input) {
