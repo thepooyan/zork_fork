@@ -34,4 +34,9 @@ public class LockedBox extends Box implements Lock {
         }
         super.open(game);
     }
+
+    @Override
+    public String toString() {
+        return "Box";
+    }
 }

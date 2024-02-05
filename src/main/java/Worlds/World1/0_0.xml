@@ -6,14 +6,13 @@
         someone's whispering, can you hear me...?
     </story_note>
     <objects>
-        <box>
+        <lockedBox id="12s">
             <letter>
                 by the time you read this,
                 I shall be gone.
                 and so will you!
             </letter>
-        </box>
-        <lockedDoor id="12s" dest="0_1"/>
+        </lockedBox>
         <key id="12s"/>
     </objects>
     <hidden_notes>

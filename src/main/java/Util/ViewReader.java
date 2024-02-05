@@ -2,9 +2,7 @@ package Util;
 
 import Actions.Pick;
 import Enums.Direction;
-import Objects.Box;
-import Objects.Letter;
-import Objects.Pickable;
+import Objects.*;
 import Schema.Object;
 import Schema.World;
 import org.jdom2.Document;
@@ -57,10 +55,17 @@ public class ViewReader implements World {
                     objects.add(new Letter(content));
                 }
                 case "key" -> {
-                    System.out.println("it's a key");
+                    objects.add(new Key(child.getAttributeValue("id")));
                 }
-                case "lock" -> {
-                    System.out.println("it's a lock");
+                case "lockedBox" -> {
+                    List<Object> innerObjs = getObjectsFromNode(child);
+                    List<Pickable> content = new ArrayList<>();
+                    innerObjs.forEach(i -> {
+                        if (i instanceof Pickable) {
+                            content.add((Pickable) i);
+                        }
+                    });
+                    objects.add(new LockedBox(content, child.getAttributeValue("id")));
                 }
             }
         });
