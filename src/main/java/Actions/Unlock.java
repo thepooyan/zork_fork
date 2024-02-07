@@ -1,10 +1,12 @@
 package Actions;
 
 import Game.Game;
-import Objects.Key;
 import Objects.Lock;
+import Objects.Key;
 import Schema.ActionOnObject;
-
+import Schema.Object;
+import Util.ObjectChecker;
+import java.util.List;
 import java.util.Optional;
 
 public class Unlock extends ActionOnObject<Lock> {
@@ -13,20 +15,33 @@ public class Unlock extends ActionOnObject<Lock> {
     }
 
     @Override
-    public void applyAction(Lock a, Game game) {
+    public void applyAction(Lock subject, Game game) {
         if (!arguments[1].equals("with")) {
             System.out.println("unlock with what?");
             return;
         }
+        String objectName = arguments[2];
+        ObjectChecker objectChecker = new ObjectChecker();
 
-        Optional<Key> key = game.getInventory()
-                .stream()
-                .filter(f -> f.toString().equalsIgnoreCase(arguments[2]))
-                .map(m -> (Key) m)
-                .findFirst();
-        key.ifPresentOrElse(a::unlock, () -> {
-            System.out.println("you have no " + arguments[2] + " in your inventory");
-        });
+        List<Object> inventory = game.getInventory().stream().map(f -> (Object) f).toList();
+        Optional<Object> objInList = objectChecker.findObjInList(inventory, objectName);
 
+        try {
+
+        objInList.ifPresentOrElse(
+                p->{
+                    Key cast =(Key) p;
+                    subject.unlock(cast);
+                },
+                ()->{
+                    boolean b = objectChecker.objectExists(objectName);
+                    if (b)
+                        System.out.println("you have no " + objectName + " in your inventory");
+                    else
+                        System.out.println("what's a \"" + objectName + "\" ?!");
+                });
+        } catch (Exception e) {
+            System.out.println("how should i unlock it with a " + objectName + "?!?");
+        }
     }
 }

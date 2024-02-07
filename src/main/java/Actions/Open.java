@@ -10,7 +10,7 @@ public class Open extends ActionOnObject<Openable> {
     }
 
     @Override
-    public void applyAction(Openable object, Game game) {
-        object.open(game);
+    public void applyAction(Openable subject, Game game) {
+        subject.open(game);
     }
 }

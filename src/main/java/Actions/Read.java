@@ -10,7 +10,7 @@ public class Read extends ActionOnObject<Readable> {
     }
 
     @Override
-    public void applyAction(Readable object, Game game) {
-        object.read();
+    public void applyAction(Readable subject, Game game) {
+        subject.read();
     }
 }
