@@ -21,17 +21,15 @@ public class ObjectChecker {
             return false;
         }
     }
-    public boolean objectInList(List<Object> objectList, String objectName) {
+    public Optional<Object> findObjInList(List<Object> objectList, String objectName) {
         try {
-            Optional<Object> object = objectList
+            return objectList
                     .stream()
                     .filter(a -> a.toString().equalsIgnoreCase(objectName))
-                    .findFirst(); //cannot handle more than one action at a view
-
-            return object.isPresent();
+                    .findFirst();
         } catch (Exception e) {
             System.out.println("how should i " + this.getClass().getSimpleName() + " the " + objectName + "?!?! :/");
-            return false;
+            return Optional.empty();
         }
     }
 }
