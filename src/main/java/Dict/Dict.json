@@ -1,9 +1,9 @@
 {
   "move": [
-    "m","go", "travel"
+    "go", "travel"
   ],
   "describe": [
-    "tell"
+    "tell", "t"
   ],
   "exit": [
     "e","end", "done", "out"
@@ -12,7 +12,6 @@
   "pick": ["p"],
   "open": ["o"],
   "inventory": ["i"],
-  "clear": ["c"],
   "move right": ["r"],
   "move left": ["l"],
   "move up": ["u"],

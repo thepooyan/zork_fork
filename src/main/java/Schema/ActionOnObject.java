@@ -5,7 +5,7 @@ import Util.ObjectChecker;
 import java.util.List;
 import java.util.Optional;
 
-public class ActionOnObject<O extends Object> extends Schema.Action {
+public class ActionOnObject<O extends Object> extends Action {
     ObjectChecker objectChecker = new ObjectChecker();
     public void applyAction(O subject, Game game) {}
     @Override
