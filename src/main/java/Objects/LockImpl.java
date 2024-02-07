@@ -8,7 +8,7 @@ public class LockImpl implements Lock {
         this.ID = ID;
     }
 
-    public boolean open(Key key) {
+    public boolean unlock(Key key) {
         if (isOpen) {
             System.out.println("Already open");
             return true;
@@ -38,7 +38,7 @@ public class LockImpl implements Lock {
         return !isOpen;
     }
 
-    public boolean isOpen() {
+    public boolean isLocked() {
         return isOpen;
     }
 }

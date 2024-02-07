@@ -4,6 +4,6 @@ import Schema.Object;
 
 public interface Lock extends Object {
     boolean lock(Key key);
-    boolean open(Key key);
-    boolean isOpen();
+    boolean unlock(Key key);
+    boolean isLocked();
 }

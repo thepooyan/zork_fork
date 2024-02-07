@@ -12,6 +12,6 @@ public class Unlock extends ActionOnObject<Lock> {
 
     @Override
     public void applyAction(Lock a, Game game) {
-        a.open(new Key("12s"));
+        a.unlock(new Key("12s"));
     }
 }

@@ -17,18 +17,18 @@ public class LockedBox extends Box implements Lock {
     }
 
     @Override
-    public boolean open(Key key) {
-        return innerLock.open(key);
+    public boolean unlock(Key key) {
+        return innerLock.unlock(key);
     }
 
     @Override
-    public boolean isOpen() {
-        return innerLock.isOpen();
+    public boolean isLocked() {
+        return innerLock.isLocked();
     }
 
     @Override
     public void open(Game game) {
-        if (!innerLock.isOpen()) {
+        if (!innerLock.isLocked()) {
             System.out.println("box is locked!");
             return;
         }
