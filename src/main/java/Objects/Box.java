@@ -7,11 +7,11 @@ import java.util.List;
 public class Box extends Pickable implements Openable {
     private final List<Pickable> content;
     public Box(List<Pickable> content) {
-        super(100 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0));
+        super(50 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0));
         this.content = content;
     }
     public Box() {
-        super(100);
+        super(50);
         content = new ArrayList<>();
     }
 
