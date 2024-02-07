@@ -3,6 +3,8 @@ idea:
 
 to make:
 - shout action
+- set alias
+- up and down arrows navigate history
 - key and lock objects
 - burn the letter
 - flip the table
