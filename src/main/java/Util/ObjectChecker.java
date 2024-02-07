@@ -1,11 +1,10 @@
 package Util;
 
 import Schema.Object;
-
 import java.util.List;
 import java.util.Optional;
 
-public class ObjectChecker<O extends Object> {
+public class ObjectChecker {
 
     private String toCamelCase(String str) {
         str = str.toLowerCase();
