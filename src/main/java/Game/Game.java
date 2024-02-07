@@ -6,18 +6,17 @@ import Schema.World;
 import Util.Prompt;
 import Schema.View;
 import Util.ViewReader;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private Prompt prompt = new Prompt();
-    private SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    private World currentWorld = new ViewReader("World1");
+    private final Prompt prompt = new Prompt();
+    private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
+    private final World currentWorld = new ViewReader("World1");
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
     private List<Pickable> inventory = new ArrayList<>();
-    private CarryWeight carryWeight = new CarryWeight(100);
+    private final CarryWeight carryWeight = new CarryWeight(100);
 
     public void start() {
         describeView();

@@ -34,17 +34,16 @@ public abstract class Action {
     public boolean notEnoughArguments() {
         if (isMininmum) {
            if (Arrays.stream(arguments).count() < expectedArgumnets) {
-               System.out.println("you need to use " + this + " with " + expectedArgumnets + " minimum arguments.");
+               System.out.println("you need to use " + this + " with at least " + expectedArgumnets + " arguments.");
                return true;
            }
-           return false;
         } else {
             if (Arrays.stream(arguments).count() != expectedArgumnets) {
                System.out.println("you need to use " + this + " with " + expectedArgumnets + " arguments.");
                return true;
            }
-            return false;
         }
+        return false;
     }
 
     @Override

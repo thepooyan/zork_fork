@@ -1,9 +1,7 @@
 package Objects;
 
-import Game.Game;
-
-public class Letter extends Pickable implements Readable{
-    private String msg;
+public class Letter extends Pickable implements Readable {
+    private final String msg;
 
     public Letter(String msg) {
         super(1);

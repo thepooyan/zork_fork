@@ -5,7 +5,7 @@ import Schema.Object;
 import java.util.Random;
 
 public class Pickable implements Object {
-    private int weight;
+    private final int weight;
     private final int id = new Random().nextInt(10000);
     public Pickable(int weight) {
        this.weight = weight;

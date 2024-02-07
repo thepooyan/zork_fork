@@ -16,20 +16,12 @@ public class ObjectChecker {
             return true;
         } catch (ClassNotFoundException e) {
             return false;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
         }
     }
     public Optional<Object> findObjInList(List<Object> objectList, String objectName) {
-        try {
-            return objectList
-                    .stream()
-                    .filter(a -> a.toString().equalsIgnoreCase(objectName))
-                    .findFirst();
-        } catch (Exception e) {
-            System.out.println("how should i " + this.getClass().getSimpleName() + " the " + objectName + "?!?! :/");
-            return Optional.empty();
-        }
+        return objectList
+                .stream()
+                .filter(a -> a.toString().equalsIgnoreCase(objectName))
+                .findFirst();
     }
 }

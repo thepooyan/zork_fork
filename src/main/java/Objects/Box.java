@@ -1,12 +1,11 @@
 package Objects;
 
 import Game.Game;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Box extends Pickable implements Openable {
-    private List<Pickable> content;
+    private final List<Pickable> content;
     public Box(List<Pickable> content) {
         super(100 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0));
         this.content = content;
@@ -27,6 +26,5 @@ public class Box extends Pickable implements Openable {
         System.out.println("opening the box: there's a " + contentS + " inside.");
 
         game.getCurrentView().getObjects().addAll(content);
-        content = new ArrayList<>();
     }
 }
