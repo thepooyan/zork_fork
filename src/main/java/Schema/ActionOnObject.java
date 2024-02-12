@@ -13,12 +13,17 @@ public class ActionOnObject<O extends Object> extends Action {
         String objectName = arguments[0];
 
         List<Object> objectList = game.getCurrentView().getObjects();
+        objectList.addAll(game.getInventory());
         Optional<Object> objInList = objectChecker.findObjInList(objectList, objectName);
 
-        try {
             objInList.ifPresentOrElse(
                     a -> {
-                        this.applyAction((O) a, game);
+                        try {
+                            O cast = (O) a;
+                            this.applyAction(cast, game);
+                        } catch (Exception e) {
+                            System.out.println("how should i " + this + " the " + objectName + "?!?! :/");
+                        }
                     },
                     ()->{
                         boolean result = objectChecker.objectExists(objectName);
@@ -30,8 +35,5 @@ public class ActionOnObject<O extends Object> extends Action {
                     }
             );
 
-        } catch (Exception e) {
-            System.out.println("how should i " + this + " the " + objectName + "?!?! :/");
-        }
     }
 }
