@@ -12,6 +12,6 @@ public class WorldManager implements World {
 
     @Override
     public View getView(double x, double y) {
-        return viewReader.getView(x, y);
+        return viewReader.readView(x, y);
     }
 }

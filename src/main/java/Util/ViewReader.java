@@ -92,8 +92,7 @@ public class ViewReader {
         return neighbours;
     }
 
-    @Override
-    public View getView(double x, double y) {
+    public View readView(double x, double y) {
         File file = new File(getFileName(x,y));
         SAXBuilder builder = new SAXBuilder();
         try {
