@@ -1,6 +1,4 @@
 idea:
-    remove junk from sentences before proccess
-    support multiple langueges
     use nlp model!
 
 to make:
@@ -11,6 +9,7 @@ to make:
 3. ActionOnObejects should search through view and inventory for obejcts
 (or just make another category for inventory object actions?)
 
+- implement virtual world
 - the fake typing effect
 - shout action
 - set alias
