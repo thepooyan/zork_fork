@@ -13,5 +13,6 @@ public class Pick extends ActionOnObject<Pickable> {
     @Override
     public void applyAction(Pickable subject, Game game) {
         subject.pickup(game);
+        game.getCurrentView().getObjects().remove(subject);
     }
 }
