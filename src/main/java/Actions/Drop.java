@@ -21,6 +21,7 @@ public class Drop extends Action {
         dropping.ifPresentOrElse(
                 a -> {
                     game.dropFromInventory(a);
+                    game.getCurrentView().getObjects().add(a);
                     System.out.println("dropped: " + a);
                 },
                 () -> System.out.println("you have no " + this.arguments[0])

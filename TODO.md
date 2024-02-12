@@ -4,8 +4,6 @@ idea:
 to make:
 
 *** how to fix the inventory:
-1. items picked up from a view have to be deleted from said view
-2. same for items dropped
 3. ActionOnObejects should search through view and inventory for obejcts
 (or just make another category for inventory object actions?)
 
