@@ -70,10 +70,7 @@ public class Game {
     }
     public void dropFromInventory(Pickable item) {
         carryWeight.decreaseValue(item.getWeight());
-        List<Pickable> list = getInventory().stream()
-                .filter(a -> !a.equals(item)).toList();
-
-        setInventory(list);
+        getInventory().remove(item);
     }
 
     public int getCarryWeight() {
