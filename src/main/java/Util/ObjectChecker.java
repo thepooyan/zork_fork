@@ -1,5 +1,6 @@
 package Util;
 
+import Objects.Pickable;
 import Schema.Object;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,12 @@ public class ObjectChecker {
         }
     }
     public Optional<Object> findObjInList(List<Object> objectList, String objectName) {
+        return objectList
+                .stream()
+                .filter(a -> a.toString().equalsIgnoreCase(objectName))
+                .findFirst();
+    }
+    public Optional<Pickable> findPickableInList(List<Pickable> objectList, String objectName) {
         return objectList
                 .stream()
                 .filter(a -> a.toString().equalsIgnoreCase(objectName))

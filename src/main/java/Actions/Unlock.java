@@ -23,7 +23,8 @@ public class Unlock extends ActionOnObject<Lock> {
         String objectName = arguments[2];
         ObjectChecker objectChecker = new ObjectChecker();
 
-        List<Object> inventory = game.getInventory().stream().map(f -> (Object) f).toList();
+        List<Object> inventory = new java.util.ArrayList<>(game.getInventory().stream().map(f -> (Object) f).toList());
+        inventory.addAll(game.getCurrentView().getObjects());
         Optional<Object> objInList = objectChecker.findObjInList(inventory, objectName);
 
         try {

@@ -21,7 +21,7 @@ public class ActionOnObject<O extends Object> extends Action {
                         try {
                             O cast = (O) a;
                             this.applyAction(cast, game);
-                        } catch (Exception e) {
+                        } catch (ClassCastException e) {
                             System.out.println("how should i " + this + " the " + objectName + "?!?! :/");
                         }
                     },
