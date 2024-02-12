@@ -12,7 +12,7 @@ import java.util.List;
 public class Game {
     private final Prompt prompt = new Prompt();
     private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    private final World currentWorld = new ViewReader("World1");
+    private final World currentWorld = new WorldManager("World1");
     private View currentView = currentWorld.getView(0,0);
     private boolean stop = false;
     private List<Pickable> inventory = new ArrayList<>();

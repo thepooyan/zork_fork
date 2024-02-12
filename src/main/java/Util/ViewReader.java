@@ -3,7 +3,6 @@ package Util;
 import Enums.Direction;
 import Objects.*;
 import Schema.Object;
-import Schema.World;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ViewReader implements World {
+public class ViewReader {
     private final String viewsFolder;
 
     public ViewReader(String worldLabel) {
