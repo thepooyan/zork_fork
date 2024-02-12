@@ -9,6 +9,7 @@ to make:
 3. ActionOnObejects should search through view and inventory for obejcts
 (or just make another category for inventory object actions?)
 
+- description of objects should be a property of them
 - implement virtual world
 - the fake typing effect
 - shout action
