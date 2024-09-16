@@ -13,11 +13,11 @@ public class Game {
     private final Prompter prompter = new Prompter();
     private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     private final CarryWeight carryWeight = new CarryWeight(100);
+    private final List<Pickable> inventory = new ArrayList<>();
     private final World currentWorld;
-    private View currentView;
-    private List<Pickable> inventory = new ArrayList<>();
-    private boolean stop = false;
     private final String username;
+    private View currentView;
+    private boolean stop = false;
 
     public Game(String username, String worldName) {
         this.username = username;
@@ -64,10 +64,6 @@ public class Game {
 
     public List<Pickable> getInventory() {
         return inventory;
-    }
-
-    private void setInventory(List<Pickable> inventory) {
-        this.inventory = inventory;
     }
 
     public void addToInventory(Pickable item) {
