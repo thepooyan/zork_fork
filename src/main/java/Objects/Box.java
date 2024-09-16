@@ -9,12 +9,15 @@ import java.util.List;
 
 public class Box extends Pickable implements Openable {
     private final List<Pickable> content;
-    public Box(List<Pickable> content) {
-        super(50 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0));
+    public Box(List<Pickable> content, String desc) {
+        super(
+                50 + content.stream().map(Pickable::getWeight).reduce(Integer::sum).orElse(0),
+                desc
+        );
         this.content = content;
     }
-    public Box() {
-        super(50);
+    public Box(String desc) {
+        super(50, desc);
         content = new ArrayList<>();
     }
 

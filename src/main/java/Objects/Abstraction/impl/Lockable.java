@@ -1,12 +1,14 @@
 package Objects.Abstraction.impl;
 
 import Objects.Key;
+import Schema.ObjectImpl;
 
-public class Lockable implements Objects.Abstraction.Properties.Lockable {
+public class Lockable extends ObjectImpl implements Objects.Abstraction.Properties.Lockable {
     private final String ID;
     private boolean isOpen = false;
 
-    public Lockable(String ID) {
+    public Lockable(String ID, String desc) {
+        super(desc);
         this.ID = ID;
     }
 

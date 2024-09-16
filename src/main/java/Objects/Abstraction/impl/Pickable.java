@@ -1,14 +1,16 @@
 package Objects.Abstraction.impl;
 import Game.Game;
 import Schema.Object;
+import Schema.ObjectImpl;
 
 import java.util.Random;
 
-public class Pickable implements Objects.Abstraction.Properties.Pickable {
+public class Pickable extends ObjectImpl implements Objects.Abstraction.Properties.Pickable {
     private final int weight;
     private final int id = new Random().nextInt(10000);
-    public Pickable(int weight) {
-       this.weight = weight;
+    public Pickable(int weight, String desc) {
+        super(desc);
+        this.weight = weight;
     }
 
     @Override

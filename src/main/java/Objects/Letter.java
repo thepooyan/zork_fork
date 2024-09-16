@@ -6,8 +6,8 @@ import Objects.Abstraction.impl.Pickable;
 public class Letter extends Pickable implements Readable {
     private final String msg;
 
-    public Letter(String msg) {
-        super(1);
+    public Letter(String msg, String desc) {
+        super(1, desc);
         this.msg = msg;
     }
 

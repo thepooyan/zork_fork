@@ -4,8 +4,8 @@ import Objects.Abstraction.impl.Pickable;
 
 public class Key extends Pickable {
     private final String ID;
-    public Key(String ID) {
-        super(2);
+    public Key(String ID, String desc) {
+        super(2, desc);
         this.ID = ID;
     }
 

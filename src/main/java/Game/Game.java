@@ -55,6 +55,9 @@ public class Game {
 
     public void describeView() {
         System.out.println(this.currentView.getStoryNote());
+        this.currentView.getObjects().forEach(object -> {
+            System.out.println( object.getDescription() );
+        });
     }
 
     public WorldCacher getCurrentWorld() {

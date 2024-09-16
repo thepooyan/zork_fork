@@ -8,9 +8,9 @@ import java.util.List;
 
 public class LockedBox extends Box implements Objects.Abstraction.Properties.Lockable {
     private final Lockable innerLock;
-    public LockedBox(List<Pickable> content, String ID) {
-        super(content);
-        innerLock = new Lockable(ID);
+    public LockedBox(List<Pickable> content, String ID, String desc) {
+        super(content, desc);
+        innerLock = new Lockable(ID, desc);
     }
 
     @Override

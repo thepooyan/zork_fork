@@ -49,15 +49,18 @@ public class ViewReader {
                            content.add((Pickable) i);
                         }
                     });
-                    objects.add(new Box(content));
+                    objects.add(new Box(content, "a box here"));
                 }
                 case "letter" -> {
                     String content = child.getTextTrim();
                     content = trimXmlIndent(content);
-                    objects.add(new Letter(content));
+                    objects.add(new Letter(content, "a letter here"));
                 }
                 case "key" -> {
-                    objects.add(new Key(child.getAttributeValue("id")));
+                    objects.add(new Key(
+                            child.getAttributeValue("id"),
+                            child.getAttributeValue("description")
+                            ));
                 }
                 case "lockedBox" -> {
                     List<Object> innerObjs = getObjectsFromNode(child);
@@ -67,7 +70,11 @@ public class ViewReader {
                             content.add((Pickable) i);
                         }
                     });
-                    objects.add(new LockedBox(content, child.getAttributeValue("id")));
+                    objects.add(new LockedBox(
+                            content,
+                            child.getAttributeValue("id"),
+                            child.getAttributeValue("description")
+                    ));
                 }
             }
         });
