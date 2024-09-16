@@ -2,18 +2,18 @@
     <story_note>
         you are in a room. there's a door on the north side,
         and a hallway on the east.
-        you wake up. there's a box here on the table,
+        you wake up.
         someone's whispering, can you hear me...?
     </story_note>
     <objects>
-        <lockedBox id="12s">
+        <lockedBox id="12s" description="there's a box here on the table">
             <letter>
                 by the time you read this,
                 I shall be gone.
                 and so will you!
             </letter>
         </lockedBox>
-        <key id="12s"/>
+        <key id="12s" description="you see a key"/>
     </objects>
     <hidden_notes>
         <note keyword="table">
