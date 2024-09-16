@@ -1,6 +1,6 @@
 package Util;
 
-import Objects.Pickable;
+import Objects.Abstraction.impl.Pickable;
 import Schema.Object;
 import java.util.List;
 import java.util.Optional;

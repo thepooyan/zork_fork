@@ -1,7 +1,7 @@
 package Actions;
 
 import Game.Game;
-import Objects.Openable;
+import Objects.Abstraction.Properties.Openable;
 import Schema.ActionOnObject;
 
 public class Open extends ActionOnObject<Openable> {

@@ -1,0 +1,23 @@
+object:
+    pick
+    read
+    open
+    repair
+    assamble
+    store
+
+person:
+    talk
+    kill
+    fuck
+    kiss
+    love
+    deal
+    greet
+    listen
+    apologize
+    respect
+    challange
+    forgive
+    persuade
+    warn

@@ -1,7 +1,7 @@
 package Actions;
 
 import Game.Game;
-import Objects.Readable;
+import Objects.Abstraction.Properties.Readable;
 import Schema.ActionOnObject;
 
 public class Read extends ActionOnObject<Readable> {

@@ -1,5 +1,8 @@
 package Objects;
 
+import Objects.Abstraction.Properties.Readable;
+import Objects.Abstraction.impl.Pickable;
+
 public class Letter extends Pickable implements Readable {
     private final String msg;
 

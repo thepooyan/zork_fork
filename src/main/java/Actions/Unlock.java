@@ -1,7 +1,7 @@
 package Actions;
 
 import Game.Game;
-import Objects.Lock;
+import Objects.Abstraction.Properties.Lock;
 import Objects.Key;
 import Schema.ActionOnObject;
 import Schema.Object;

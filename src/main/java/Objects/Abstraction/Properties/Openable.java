@@ -1,4 +1,4 @@
-package Objects;
+package Objects.Abstraction.Properties;
 
 import Game.Game;
 import Schema.Object;

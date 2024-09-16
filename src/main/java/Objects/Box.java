@@ -1,6 +1,9 @@
 package Objects;
 
 import Game.Game;
+import Objects.Abstraction.Properties.Openable;
+import Objects.Abstraction.impl.Pickable;
+
 import java.util.ArrayList;
 import java.util.List;
 

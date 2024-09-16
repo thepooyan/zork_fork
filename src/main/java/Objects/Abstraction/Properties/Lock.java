@@ -1,5 +1,6 @@
-package Objects;
+package Objects.Abstraction.Properties;
 
+import Objects.Key;
 import Schema.Object;
 
 public interface Lock extends Object {

@@ -1,6 +1,6 @@
 package Game;
 
-import Objects.Pickable;
+import Objects.Abstraction.impl.Pickable;
 import Schema.Action;
 import Schema.World;
 import Util.Prompter;

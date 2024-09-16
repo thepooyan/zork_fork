@@ -1,10 +1,12 @@
-package Objects;
+package Objects.Abstraction.impl;
 
-public class LockImpl implements Lock {
+import Objects.Key;
+
+public class Lock implements Objects.Abstraction.Properties.Lock {
     private final String ID;
     private boolean isOpen = false;
 
-    public LockImpl(String ID) {
+    public Lock(String ID) {
         this.ID = ID;
     }
 

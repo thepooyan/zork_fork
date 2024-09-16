@@ -1,14 +1,16 @@
 package Objects;
 
 import Game.Game;
+import Objects.Abstraction.impl.Lock;
+import Objects.Abstraction.impl.Pickable;
 
 import java.util.List;
 
-public class LockedBox extends Box implements Lock {
-    private final LockImpl innerLock;
+public class LockedBox extends Box implements Objects.Abstraction.Properties.Lock {
+    private final Lock innerLock;
     public LockedBox(List<Pickable> content, String ID) {
         super(content);
-        innerLock = new LockImpl(ID);
+        innerLock = new Lock(ID);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package Actions;
 
 import Game.Game;
-import Objects.Pickable;
+import Objects.Abstraction.impl.Pickable;
 import Schema.Action;
 
 import java.util.Optional;
