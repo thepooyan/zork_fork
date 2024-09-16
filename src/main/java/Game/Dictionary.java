@@ -5,8 +5,7 @@ import java.io.File;
 import java.util.*;
 
 public class Dictionary {
-        private final Map<Integer, String> actions = new HashMap<>();
-        private final Map<String, Integer> aliases = new HashMap<>();
+        private final Map<String, String> actions_aliases = new HashMap<>();
 
         public Dictionary(String src) {
                 File dictFile = new File(src);
@@ -14,35 +13,27 @@ public class Dictionary {
 
                 try {
                         JsonNode rootNode = objectMapper.readTree(dictFile);
-                        parseJsonToMaps(rootNode);
+                        parseJsonToMap(rootNode);
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
         }
 
-        private void parseJsonToMaps(JsonNode rootNode) {
+        private void parseJsonToMap(JsonNode rootNode) {
                 List<String> keysList = new ArrayList<>();
                 rootNode.fieldNames().forEachRemaining(keysList::add);
 
-                for (int i = 0; i < keysList.size(); i++) {
-                        String actionLabel = keysList.get(i);
-                        JsonNode aliasesArray = rootNode.get(actionLabel);
+            for (String actionLabel : keysList) {
+                JsonNode aliasesArray = rootNode.get(actionLabel);
 
-                        // Store action with its index
-                        actions.put(i, actionLabel);
-                        aliases.put(actionLabel, i);
-
-                        // Map related names (if any) to the same index
-                        // Lambda requires 'i' to be final, so we declare it as a final variable
-                        final int index = i;
-                        aliasesArray.forEach(name -> aliases.put(name.asText(), index));
-                }
+                actions_aliases.put(actionLabel, actionLabel);
+                aliasesArray.forEach(alias -> actions_aliases.put(alias.asText(), actionLabel));
+            }
         }
 
         public Optional<String> getActionLabel(String input) {
-                return Optional.ofNullable(aliases.get(input))
-                        .map(actions::get)
-                        .map(this::capitalizeActionLabel);
+                if (actions_aliases.get(input) == null) return Optional.empty();
+                return Optional.of(capitalizeActionLabel(actions_aliases.get(input)));
         }
 
         private String capitalizeActionLabel(String action) {
