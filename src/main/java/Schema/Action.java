@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 public abstract class Action {
     protected String[] arguments = {};
-    private int expectedArgumnets = 0;
-    private boolean isMininmum = false;
+    private boolean hasExpectedArguments = false;
+    private int expectedArguments = 0;
+    private boolean hasMinimumExpectedArguments = false;
+    private int minimumExpectedArguments = 0;
 
 
     public Action() {}
@@ -22,26 +24,26 @@ public abstract class Action {
     }
 
     public void setExpectedArguments(int expectedArguments) {
-        this.expectedArgumnets = expectedArguments;
-        isMininmum = false;
+        this.expectedArguments = expectedArguments;
+        this.hasExpectedArguments = true;
     }
 
     public void setMinimumExpectedArguments(int minimumExpectedArguments) {
-        this.expectedArgumnets = minimumExpectedArguments;
-        isMininmum = true;
+        this.minimumExpectedArguments = minimumExpectedArguments;
+        this.hasMinimumExpectedArguments = true;
     }
 
     public boolean notEnoughArguments() {
-        if (isMininmum) {
-           if (Arrays.stream(arguments).count() < expectedArgumnets) {
-               System.out.println("you need to use " + this + " with at least " + expectedArgumnets + " arguments.");
-               return true;
-           }
-        } else {
-            if (Arrays.stream(arguments).count() != expectedArgumnets) {
-               System.out.println("you need to use " + this + " with " + expectedArgumnets + " arguments.");
-               return true;
-           }
+        if (hasExpectedArguments) {
+            if (Arrays.stream(arguments).count() != expectedArguments) {
+                System.out.println("you need to use " + this + " with " + expectedArguments + " arguments.");
+                return true;
+            }
+        } else if (hasMinimumExpectedArguments) {
+            if (Arrays.stream(arguments).count() < minimumExpectedArguments) {
+                System.out.println("you need to use " + this + " with at least " + minimumExpectedArguments + " arguments.");
+                return true;
+            }
         }
         return false;
     }
