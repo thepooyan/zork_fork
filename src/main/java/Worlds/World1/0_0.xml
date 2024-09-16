@@ -6,16 +6,15 @@
         someone's whispering, can you hear me...?
     </story_note>
     <objects>
-      <box description="normal box as well">
-      </box>
-        <lockedBox id="12s" description="there's a black box here on the table">
+      <box description="old looking box"></box>
+        <lockedBox id="12s" description="big black metal box">
           <letter description="there's a red letter">
                 by the time you read this,
                 I shall be gone.
                 and so will you!
             </letter>
         </lockedBox>
-        <key id="12s" description="you see a key"/>
+        <key id="12s" description="old wired looking key"/>
     </objects>
     <hidden_notes>
         <note keyword="table">

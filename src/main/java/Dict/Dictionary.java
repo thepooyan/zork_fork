@@ -1,18 +1,14 @@
-package Game;
+package Dict;
+import Util.JsonReader;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
 import java.util.*;
 
 public class Dictionary {
         private final Map<String, String> actions_aliases = new HashMap<>();
 
         public Dictionary(String src) {
-                File dictFile = new File(src);
-                ObjectMapper objectMapper = new ObjectMapper();
-
                 try {
-                        JsonNode rootNode = objectMapper.readTree(dictFile);
+                        JsonNode rootNode = new JsonReader(src).getJsonData();
                         parseJsonToMap(rootNode);
                 } catch (Exception e) {
                         e.printStackTrace();
@@ -23,12 +19,12 @@ public class Dictionary {
                 List<String> keysList = new ArrayList<>();
                 rootNode.fieldNames().forEachRemaining(keysList::add);
 
-            for (String actionLabel : keysList) {
-                JsonNode aliasesArray = rootNode.get(actionLabel);
+                for (String actionLabel : keysList) {
+                        JsonNode aliasesArray = rootNode.get(actionLabel);
 
-                actions_aliases.put(actionLabel, actionLabel);
-                aliasesArray.forEach(alias -> actions_aliases.put(alias.asText(), actionLabel));
-            }
+                        actions_aliases.put(actionLabel, actionLabel);
+                        aliasesArray.forEach(alias -> actions_aliases.put(alias.asText(), actionLabel));
+                }
         }
 
         public Optional<String> getActionLabel(String input) {

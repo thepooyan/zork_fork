@@ -1,6 +1,7 @@
 package Game;
 
 import Actions.*;
+import Dict.Dictionary;
 import Schema.Action;
 import java.util.Arrays;
 import java.util.Optional;

@@ -1,5 +1,6 @@
 package Game;
 
+import Dict.MetaData;
 import Objects.Abstraction.impl.Pickable;
 import Schema.Action;
 import Util.Prompter;
@@ -15,6 +16,7 @@ public class Game {
     private final List<Pickable> inventory = new ArrayList<>();
     private final WorldCacher currentWorld;
     private final String username;
+    private final MetaData metaData = new MetaData("src/main/java/Dict/meta-data.json");
     private View currentView;
     private boolean stop = false;
 
@@ -56,7 +58,7 @@ public class Game {
     public void describeView() {
         System.out.println(this.currentView.getStoryNote());
         this.currentView.getObjects().forEach(object -> {
-            System.out.println( object.getDescription() );
+            System.out.println( metaData.getRandomSceneStarter() + " " +  object.getDescription() );
         });
     }
 
