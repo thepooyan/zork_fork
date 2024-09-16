@@ -6,8 +6,10 @@
         someone's whispering, can you hear me...?
     </story_note>
     <objects>
-        <lockedBox id="12s" description="there's a box here on the table">
-            <letter>
+      <box description="normal box as well">
+      </box>
+        <lockedBox id="12s" description="there's a black box here on the table">
+          <letter description="there's a red letter">
                 by the time you read this,
                 I shall be gone.
                 and so will you!

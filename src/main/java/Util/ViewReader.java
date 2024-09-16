@@ -13,7 +13,6 @@ import Schema.View;
 import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,12 +48,12 @@ public class ViewReader {
                            content.add((Pickable) i);
                         }
                     });
-                    objects.add(new Box(content, "a box here"));
+                    objects.add(new Box(content, child.getAttributeValue("description")));
                 }
                 case "letter" -> {
                     String content = child.getTextTrim();
                     content = trimXmlIndent(content);
-                    objects.add(new Letter(content, "a letter here"));
+                    objects.add(new Letter(content, child.getAttributeValue("description")));
                 }
                 case "key" -> {
                     objects.add(new Key(
