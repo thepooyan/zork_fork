@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class SyntaxAnalyzer {
-    Dictionary dictionary = new Dictionary();
+    private final Dictionary dictionary = new Dictionary();
     public Action analyzeResponse(String response) {
 
        response = response.toLowerCase();
-       if (response.trim().equals("")) return new Idol();
+       if (response.trim().isEmpty()) return new Idol();
 
        String[] chunks = response.split(" ");
-       Optional<Action> optionalAction = searchActions(toCamelCase(chunks[0]));
+       Optional<Action> optionalAction = searchActions(chunks[0]);
 
        if (optionalAction.isPresent()) {
            Action action = optionalAction.get();
@@ -32,7 +32,8 @@ public class SyntaxAnalyzer {
 
         return new Unkown(chunks[0]);
     }
-    public Optional<Action> searchActions(String actionLabel) {
+    private Optional<Action> searchActions(String actionLabel) {
+        actionLabel = toCamelCase(actionLabel);
         try {
             Class<?> clazz = Class.forName("Actions." + actionLabel);
             Object instance = clazz.getDeclaredConstructor().newInstance();
@@ -43,11 +44,11 @@ public class SyntaxAnalyzer {
         } catch (Exception ignored) {}
         return Optional.empty();
     }
-    public String toCamelCase(String string) {
+    private String toCamelCase(String string) {
         string = string.toLowerCase();
         return string.substring(0,1).toUpperCase().concat(string.substring(1));
     }
-    public Action prepareAction(Action action, String[] chunks) {
+    private Action prepareAction(Action action, String[] chunks) {
         if (chunks.length > 1) {
             String[] newArray = Arrays.copyOfRange(chunks, 1, chunks.length);
             action.setArguments(newArray);
