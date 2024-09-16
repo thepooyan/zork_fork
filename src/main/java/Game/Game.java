@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void gameLoop() {
-        String response = prompter.get("=> ");
+        String response = prompter.prompt("=> ");
         Action action = syntaxAnalyzer.analyzeResponse(response);
         action.safeApply(this);
         if (stop) return;
