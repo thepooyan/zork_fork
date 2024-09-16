@@ -9,7 +9,8 @@ import java.util.HashMap;
 
 public class WorldManager implements World {
     private final ViewReader viewReader;
-    private HashMap<Point2D, View> store = new HashMap<>();
+    private final HashMap<Point2D, View> store = new HashMap<>();
+    
     public WorldManager(String worldLabel) {
         viewReader = new ViewReader(worldLabel);
     }
