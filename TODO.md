@@ -7,6 +7,7 @@ to make:
 3. ActionOnObejects should search through view and inventory for obejcts
 (or just make another category for inventory object actions?)
 
+- get user's name and use it!
 - description of objects should be a property of them
 - the fake typing effect
 - shout action

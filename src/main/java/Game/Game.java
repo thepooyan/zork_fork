@@ -12,11 +12,18 @@ import java.util.List;
 public class Game {
     private final Prompter prompter = new Prompter();
     private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
-    private final World currentWorld = new WorldManager("World1");
-    private View currentView = currentWorld.getView(0,0);
-    private boolean stop = false;
-    private List<Pickable> inventory = new ArrayList<>();
     private final CarryWeight carryWeight = new CarryWeight(100);
+    private final World currentWorld;
+    private View currentView;
+    private List<Pickable> inventory = new ArrayList<>();
+    private boolean stop = false;
+    public final String username;
+
+    public Game(String username, String worldName) {
+        this.username = username;
+        this.currentWorld = new WorldManager(worldName);
+        this.currentView = currentWorld.getView(0,0);
+    }
 
     public void start() {
         describeView();
