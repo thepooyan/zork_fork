@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class SyntaxAnalyzer {
-    private final Dictionary dictionary = new Dictionary();
+    private final Dictionary dictionary = new Dictionary("src/main/java/Dict/Dict.json");
     public Action analyzeResponse(String response) {
 
        response = response.toLowerCase();

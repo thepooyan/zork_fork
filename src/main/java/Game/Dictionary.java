@@ -1,45 +1,51 @@
 package Game;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.util.*;
 
 public class Dictionary {
-    private final Map<Integer, String> actions = new HashMap<>();
-    private final Map<String, Integer> maps = new HashMap<>();
+        private final Map<Integer, String> actions = new HashMap<>();
+        private final Map<String, Integer> aliases = new HashMap<>();
 
-    public Dictionary() {
-        File dict = new File("src/main/java/Dict/Dict.json");
+        public Dictionary(String src) {
+                File dictFile = new File(src);
+                ObjectMapper objectMapper = new ObjectMapper();
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            JsonNode jsonNode = objectMapper.readTree(dict);
-
-            List<String> keysList = new ArrayList<>();
-            jsonNode.fieldNames().forEachRemaining(keysList::add);
-
-            for (int i = 0; i < keysList.size(); i++) {
-                String node = keysList.get(i);
-                JsonNode namesArray = jsonNode.get(node);
-                actions.put(i, node);
-                maps.put(node, i);
-                int finalI = i;
-                namesArray.forEach(inner -> {
-                    maps.put(inner.asText(), finalI);
-                });
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+                try {
+                        JsonNode rootNode = objectMapper.readTree(dictFile);
+                        parseJsonToMaps(rootNode);
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
-    }
-    public Optional<String> getActionLabel(String input) {
-        Integer actionID = maps.get(input);
-        String action = actions.get(actionID);
-        if (action == null) {
-            return Optional.empty();
+
+        private void parseJsonToMaps(JsonNode rootNode) {
+                List<String> keysList = new ArrayList<>();
+                rootNode.fieldNames().forEachRemaining(keysList::add);
+
+                for (int i = 0; i < keysList.size(); i++) {
+                        String actionLabel = keysList.get(i);
+                        JsonNode aliasesArray = rootNode.get(actionLabel);
+
+                        // Store action with its index
+                        actions.put(i, actionLabel);
+                        aliases.put(actionLabel, i);
+
+                        // Map related names (if any) to the same index
+                        // Lambda requires 'i' to be final, so we declare it as a final variable
+                        final int index = i;
+                        aliasesArray.forEach(name -> aliases.put(name.asText(), index));
+                }
         }
-        return Optional.of(action.substring(0,1).toUpperCase().concat(action.substring(1).toLowerCase()));
-    }
+
+        public Optional<String> getActionLabel(String input) {
+                return Optional.ofNullable(aliases.get(input))
+                        .map(actions::get)
+                        .map(this::capitalizeActionLabel);
+        }
+
+        private String capitalizeActionLabel(String action) {
+                return action.substring(0, 1).toUpperCase() + action.substring(1).toLowerCase();
+        }
 }
