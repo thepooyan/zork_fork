@@ -2,7 +2,6 @@ package Game;
 
 import Objects.Abstraction.impl.Pickable;
 import Schema.Action;
-import Schema.World;
 import Util.Prompter;
 import Schema.View;
 
@@ -14,14 +13,14 @@ public class Game {
     private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     private final CarryWeight carryWeight = new CarryWeight(100);
     private final List<Pickable> inventory = new ArrayList<>();
-    private final World currentWorld;
+    private final WorldCacher currentWorld;
     private final String username;
     private View currentView;
     private boolean stop = false;
 
     public Game(String username, String worldName) {
         this.username = username;
-        this.currentWorld = new WorldManager(worldName);
+        this.currentWorld = new WorldCacher(worldName);
         this.currentView = currentWorld.getView(0,0);
     }
 
@@ -58,7 +57,7 @@ public class Game {
         System.out.println(this.currentView.getStoryNote());
     }
 
-    public World getCurrentWorld() {
+    public WorldCacher getCurrentWorld() {
         return currentWorld;
     }
 

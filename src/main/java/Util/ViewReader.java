@@ -1,5 +1,6 @@
 package Util;
 
+import Config.ConfigLoader;
 import Enums.Direction;
 import Objects.*;
 import Objects.Abstraction.impl.Pickable;
@@ -12,15 +13,17 @@ import Schema.View;
 import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ViewReader {
     private final String viewsFolder;
+    ConfigLoader configLoader = new ConfigLoader();
 
     public ViewReader(String worldLabel) {
-        String viewsFolderBase = "src/main/java/Worlds/";
+        String viewsFolderBase = configLoader.getProperty("worlds.folder");
         this.viewsFolder = viewsFolderBase + worldLabel + "/";
     }
     private String getFileName(double x, double y) {
@@ -70,6 +73,7 @@ public class ViewReader {
         });
         return objects;
     }
+
     private List<Direction> getPositionNeighbours(double x, double y) {
         List<Direction> neighbours = new ArrayList<>();
 

@@ -1,21 +1,19 @@
 package Game;
 
 import Schema.View;
-import Schema.World;
 import Util.ViewReader;
 
 import java.awt.geom.Point2D;
 import java.util.HashMap;
 
-public class WorldManager implements World {
+public class WorldCacher {
     private final ViewReader viewReader;
     private final HashMap<Point2D, View> store = new HashMap<>();
 
-    public WorldManager(String worldLabel) {
+    public WorldCacher(String worldLabel) {
         viewReader = new ViewReader(worldLabel);
     }
 
-    @Override
     public View getView(double x, double y) {
         View view = store.get(new Point2D.Double(x, y));
         if (view == null) {
