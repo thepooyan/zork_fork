@@ -2,11 +2,11 @@ package Objects.Abstraction.impl;
 
 import Objects.Key;
 
-public class Lock implements Objects.Abstraction.Properties.Lock {
+public class Lockable implements Objects.Abstraction.Properties.Lockable {
     private final String ID;
     private boolean isOpen = false;
 
-    public Lock(String ID) {
+    public Lockable(String ID) {
         this.ID = ID;
     }
 

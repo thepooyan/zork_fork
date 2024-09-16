@@ -1,7 +1,7 @@
 package Actions;
 
 import Game.Game;
-import Objects.Abstraction.Properties.Lock;
+import Objects.Abstraction.Properties.Lockable;
 import Objects.Key;
 import Schema.ActionOnObject;
 import Schema.Object;
@@ -9,13 +9,13 @@ import Util.ObjectChecker;
 import java.util.List;
 import java.util.Optional;
 
-public class Unlock extends ActionOnObject<Lock> {
+public class Unlock extends ActionOnObject<Lockable> {
     public Unlock() {
         setExpectedArguments(3);
     }
 
     @Override
-    public void applyAction(Lock subject, Game game) {
+    public void applyAction(Lockable subject, Game game) {
         if (!arguments[1].equals("with")) {
             System.out.println("unlock with what?");
             return;
