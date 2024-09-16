@@ -3,14 +3,14 @@ package Game;
 import Objects.Pickable;
 import Schema.Action;
 import Schema.World;
-import Util.Prompt;
+import Util.Prompter;
 import Schema.View;
-import Util.ViewReader;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private final Prompt prompt = new Prompt();
+    private final Prompter prompter = new Prompter();
     private final SyntaxAnalyzer syntaxAnalyzer = new SyntaxAnalyzer();
     private final World currentWorld = new WorldManager("World1");
     private View currentView = currentWorld.getView(0,0);
@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void gameLoop() {
-        String response = prompt.get("=> ");
+        String response = prompter.get("=> ");
         Action action = syntaxAnalyzer.analyzeResponse(response);
         action.safeApply(this);
         if (stop) return;
