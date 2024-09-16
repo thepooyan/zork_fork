@@ -17,7 +17,7 @@ public class Game {
     private View currentView;
     private List<Pickable> inventory = new ArrayList<>();
     private boolean stop = false;
-    public final String username;
+    private final String username;
 
     public Game(String username, String worldName) {
         this.username = username;
@@ -28,6 +28,10 @@ public class Game {
     public void start() {
         describeView();
         gameLoop();
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void end() {

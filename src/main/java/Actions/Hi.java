@@ -6,6 +6,6 @@ import Schema.Action;
 public class Hi extends Action {
     @Override
     public void apply(Game game) {
-        System.out.println("Hi " + game.username + "!");
+        System.out.println("Hi " + game.getUsername() + "!");
     }
 }
